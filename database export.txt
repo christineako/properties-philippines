@@ -1,0 +1,1088 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 10.123.0.210:3306
+-- Generation Time: Feb 08, 2022 at 09:42 AM
+-- Server version: 5.7.27
+-- PHP Version: 7.0.33-0+deb9u9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `chrcha75_eastwood2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_accounts`
+--
+
+CREATE TABLE `a_accounts` (
+  `recno` int(11) NOT NULL,
+  `usercode` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `priority` varchar(25) DEFAULT '2',
+  `stars` int(25) NOT NULL DEFAULT '1',
+  `membertype` varchar(25) DEFAULT NULL,
+  `memberlname` varchar(25) DEFAULT NULL,
+  `memberfname` varchar(25) DEFAULT NULL,
+  `membercellno` varchar(25) DEFAULT NULL,
+  `memberstatus` varchar(25) DEFAULT 'Unverified',
+  `membertag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP,
+  `memberinfo` varchar(255) DEFAULT NULL,
+  `memberlicense` varchar(255) DEFAULT NULL,
+  `memberabout` text,
+  `memberviber` varchar(255) DEFAULT NULL,
+  `memberlink` varchar(255) DEFAULT NULL,
+  `memberviberno` varchar(25) DEFAULT NULL,
+  `memberpagename` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_accounts`
+--
+
+INSERT INTO `a_accounts` (`recno`, `usercode`, `email`, `password`, `priority`, `stars`, `membertype`, `memberlname`, `memberfname`, `membercellno`, `memberstatus`, `membertag`, `dateinserted`, `memberinfo`, `memberlicense`, `memberabout`, `memberviber`, `memberlink`, `memberviberno`, `memberpagename`) VALUES
+(2, 'Chan_1636111563', 'uptownbgc@yahoo.com', '0b4d6f189af6a0bc1e3412eba532aaeb', '2', 6, 'Blue', 'Chan', 'Cindy', '09177501004', 'Verified', '', '2021-11-05 11:26:03', NULL, NULL, '', NULL, NULL, '09177501004', ''),
+(3, 'c_1636627505', 'christine_ako@yahoo.com', '0b4d6f189af6a0bc1e3412eba532aaeb', '2', 15, 'Blue', 'Chan', 'Christine', '09205202222', 'Verified', '', '2021-11-11 10:45:05', 'Broker', '0012044', '', '09205202222', 'christine', '09205202222', 'christine'),
+(21, 'Jaramilla_1640536475', 'christinechan.broker@gmail.com', '52f0bef2930a68c7a579e4135bfda415', '2', 4, 'Blue', 'Jaramilla', 'Mel', '09208809888', 'Verified', '', '2021-12-26 16:34:35', NULL, NULL, '', NULL, NULL, '09208809888', ''),
+(3, 'Chan_1640540883', 'lg30shop@yahoo.com', '0b4d6f189af6a0bc1e3412eba532aaeb', '2', 3, 'Blue', 'Chan', 'Christine', '09177501004', 'Verified', '', '2021-12-26 17:48:03', '', '', '', '09205202222', '', '09205202222', ''),
+;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_listingtype`
+--
+
+CREATE TABLE `a_listingtype` (
+  `recno` int(11) NOT NULL,
+  `listtypecode` varchar(25) DEFAULT NULL,
+  `listtypedesc` text,
+  `listtypetag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_listingtype`
+--
+
+INSERT INTO `a_listingtype` (`recno`, `listtypecode`, `listtypedesc`, `listtypetag`, `dateinserted`) VALUES
+(1, 'For Rent', 'For rent', 'For Rent', '2021-10-31 06:51:24'),
+(2, 'For Sale', 'For sale', 'For Sale', '2021-10-31 06:51:39'),
+(3, 'Preselling', 'Preselling', 'Preselling', '2021-10-31 06:51:58'),
+(4, 'Rent To Own', 'Rent to own', 'Rent To Own', '2021-10-31 07:17:00'),
+(5, 'Foreclosed', 'Foreclosed properties for sale', 'Foreclosed', '2021-12-19 08:23:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_locationcity`
+--
+
+CREATE TABLE `a_locationcity` (
+  `recno` int(11) NOT NULL,
+  `loccitycode` varchar(25) DEFAULT NULL,
+  `loccitydesc` text,
+  `loccitytag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_locationcity`
+--
+
+INSERT INTO `a_locationcity` (`recno`, `loccitycode`, `loccitydesc`, `loccitytag`, `dateinserted`) VALUES
+(1, 'Abra', 'Abra Province', 'Abra', '2022-01-01 00:00:00'),
+(2, 'Agusan Del Norte', 'Agusan Del Norte Province', 'Agusan Del Norte', '2022-01-01 00:00:00'),
+(3, 'Agusan Del Sur', 'Agusan Del Sur Provice', 'Agusan Del Sur', '2022-01-01 00:00:00'),
+(4, 'Aklan', 'Aklan Province', 'Aklan', '2022-01-01 00:00:00'),
+(5, 'Albay', 'Albay Province', 'Albay', '2022-01-01 00:00:00'),
+(6, 'Antique', 'Antique Province', 'Antique Province', '2022-01-01 00:00:00'),
+(7, 'Apayao', 'Apayao Province', 'Apayao Province', '2022-01-01 00:00:00'),
+(8, 'Aurora', 'Aurora', 'Aurora', '2022-01-01 00:00:00'),
+(9, 'Basilan', 'Basilan', 'Basilan', '2022-01-01 00:00:00'),
+(10, 'Bataan', 'Bataan', 'Bataan', '2022-01-01 00:00:00'),
+(11, 'Batanes', 'Batanes', 'Batanes', '2022-01-01 00:00:00'),
+(12, 'Batangas', 'Batangas Province', 'Batangas', '2022-01-01 00:00:00'),
+(13, 'Batangas - Batangas City', 'Batangas City', 'Batangas City', '2022-01-01 00:00:00'),
+(14, 'Batangas - Lipa', 'Batangas - Lipa', 'Lipa Batangas', '2022-01-01 00:00:00'),
+(15, 'Batangas - Nasugbu', 'Batangas - Nasugbo', 'Nasugbo Batangas', '2022-01-01 00:00:00'),
+(16, 'Batangas - Santo Tomas', 'Batangas - Santo Tomas', 'Santo Tomas Batangas', '2022-01-01 00:00:00'),
+(17, 'Batangas - Tanauan', 'Batangas -Tanauan', 'Tanauan Batangas', '2022-01-01 00:00:00'),
+(18, 'Benguet', 'Benguet Province', 'Benguet Province', '2022-01-01 00:00:00'),
+(19, 'Benguet - Baguio', 'Benguet - Baguio City', 'Baguio City Benguet', '2022-01-01 00:00:00'),
+(20, 'Benguet - La Trinidad', 'Benguet - La Trinidad', 'La Trinidad Benguet', '2022-01-01 00:00:00'),
+(21, 'Biliran', 'Biliran', 'Biliran', '2022-01-01 00:00:00'),
+(22, 'Bohol', 'Bohol', 'Bohol', '2022-01-01 00:00:00'),
+(23, 'Bukidnon', 'Bukidnon', 'Bukidnon', '2022-01-01 00:00:00'),
+(24, 'Bulacan', 'Bulacan Province', 'Bulacan', '2022-01-01 00:00:00'),
+(25, 'Bulacan - Baliuag', 'Bulacan - Baliuag', 'Baliuag Bulacan', '2022-01-01 00:00:00'),
+(26, 'Bulacan - Malolos', 'Bulacan - Malolos', 'Malolos Bulacan', '2022-01-01 00:00:00'),
+(27, 'Bulacan - Marilao', 'Bulacan - Marilao ', 'Marilao Bulcan', '2022-01-01 00:00:00'),
+(28, 'Bulacan - Meycauyan', 'Bulacan - Meycauyan', 'Meycauyan Bulacan', '2022-01-01 00:00:00'),
+(29, 'Bulacan - Norzagaray', 'Bulacan - Norzagaray ', 'Norzagaray Bulacan', '2022-01-01 00:00:00'),
+(30, 'Bulacan - Plaridel', 'Bulacan - Plaridel ', 'Plaridel Bulacan', '2022-01-01 00:00:00'),
+(31, 'Bulacan - San Ildefonso', 'Bulacan - San Ildefonso', 'San Ildefonso Bulacan', '2022-01-01 00:00:00'),
+(32, 'Bulacan - San Jose Del Mo', 'Bulacan - San Jose Del Monte', 'San Jose Del Monte Bulaca', '2022-01-01 00:00:00'),
+(33, 'Bulacan - San Miguel', 'Bulacan - San Miguel', 'San Miguel Bulacan', '2022-01-01 00:00:00'),
+(34, 'Bulacan - Santa Maria', 'Bulacan - Santa Maria', 'Santa Maria Bulacan', '2022-01-01 00:00:00'),
+(35, 'Cagayan', 'Cagayan', 'Cagayan', '2022-01-01 00:00:00'),
+(36, 'Camarines Norte', 'Camarines Norte', 'Camarines Norte', '2022-01-01 00:00:00'),
+(37, 'Camarines Sur', 'Camarines Sur', 'Camarines Sur', '2022-01-01 00:00:00'),
+(38, 'Camarines Sur - Iriga', 'Camarines Sur - Iriga', 'Iriga Camarines Sur', '2022-01-01 00:00:00'),
+(39, 'Camarines Sur - Naga', 'Camarines Sur - Naga', 'Naga Camarines Sur', '2022-01-01 00:00:00'),
+(40, 'Camarines Sur - Pili', 'Camarines Sur - Pili', 'Pili Camarines Sur', '2022-01-01 00:00:00'),
+(41, 'Camiguin', 'Camiguin', 'Camiguin', '2022-01-01 00:00:00'),
+(42, 'Capiz', 'Capiz', 'Capiz', '2022-01-01 00:00:00'),
+(43, 'Catanduanes', 'Catanduanes', 'Catanduanes', '2022-01-01 00:00:00'),
+(44, 'Cavite', 'Cavite Province', 'Cavite', '2022-01-01 00:00:00'),
+(45, 'Cavite - Bacoor', 'Cavite - Bacoor', 'Bacoor Cavite', '2022-01-01 00:00:00'),
+(46, 'Cavite - Dasmarinas', 'Cavite - Dasmarinas', 'Dasmarinas Cavite', '2022-01-01 00:00:00'),
+(47, 'Cavite - General Trias', 'Cavite - General Trias', 'General Trias Cavite', '2022-01-01 00:00:00'),
+(48, 'Cavite - Imus', 'Cavite - Imus', 'Imus Cavite', '2022-01-01 00:00:00'),
+(49, 'Cavite - Silang', 'Cavite - Silang ', 'Silang Cavite', '2022-01-01 00:00:00'),
+(50, 'Cavite - Tanza', 'Cavite - Tanza', 'Tanza Cavite', '2022-01-01 00:00:00'),
+(51, 'Cavite - Trece Martires', 'Cavite - Trece Martires', 'Trece Martires Cavite', '2022-01-01 00:00:00'),
+(52, 'Cavite City', 'Cavite City', 'Cavite City', '2022-01-01 00:00:00'),
+(53, 'Cebu - Bantayan', 'Cebu - Bantayan', 'Bantayan Cebu', '2022-01-01 00:00:00'),
+(54, 'Cebu - Carcar', 'Cebu - Carcar City', 'Carcar Cebu', '2022-01-01 00:00:00'),
+(55, 'Cebu - Cebu City', 'Cebu City', 'Cebu City', '2022-01-01 00:00:00'),
+(56, 'Cebu - Danao', 'Cebu - Danao City', 'Danao Cebu', '2022-01-01 00:00:00'),
+(57, 'Cebu - Lapu Lapu City', 'Cebu - Lapu Lapu City', 'Lapu Lapu City Cebu', '2022-01-01 00:00:00'),
+(58, 'Cebu - Manduae City', 'Cebu - Mandaue City', 'Mandaue City Cebu', '2022-01-01 00:00:00'),
+(59, 'Cebu - Talisay City', 'Cebu - Talisay City', 'Talisay Cebu', '2022-01-01 00:00:00'),
+(60, 'Cebu - Toledo', 'Cebu - Toledo City', 'Toledo Cebu', '2022-01-01 00:00:00'),
+(61, 'Cebu Province', 'Cebu Province', 'Cebu Province', '2022-01-01 00:00:00'),
+(62, 'Cotabato', 'Cotabato', 'Cotabato', '2022-01-01 00:00:00'),
+(63, 'Davao City', 'Davao City', 'Davao City', '2022-01-01 00:00:00'),
+(64, 'Davao De Oro', 'Davao De Oro', 'Davao De Oro', '2022-01-01 00:00:00'),
+(65, 'Davao Del Norte', 'Davao Del Norte', 'Davao Del Norte', '2022-01-01 00:00:00'),
+(66, 'Davao Del Sur', 'Davao Del Sur', 'Davao Del Sur', '2022-01-01 00:00:00'),
+(67, 'Davao Oriental', 'Davao Oriental', 'Davao Oriental', '2022-01-01 00:00:00'),
+(68, 'Dinagat Islands', 'Dinagat Islands', 'Dinagat Islands', '2022-01-01 00:00:00'),
+(69, 'Eastern Samar', 'Eastern Samar', 'Eastern Samar', '2022-01-01 00:00:00'),
+(70, 'Guimaras', 'Guimaras', 'Guimaras', '2022-01-01 00:00:00'),
+(71, 'Ifugao', 'Ifugao Province', 'Ifugao Province', '2022-01-01 00:00:00'),
+(72, 'Ilocos Norte', 'Ilocos Norte', 'Ilocos Norte', '2022-01-01 00:00:00'),
+(73, 'Ilocos Sur', 'Ilocos Sur', 'Ilocos Sur', '2022-01-01 00:00:00'),
+(74, 'Iloilo', 'Iloilo', 'Iloilo', '2022-01-01 00:00:00'),
+(75, 'Isabela', 'Isabela', 'Isabela', '2022-01-01 00:00:00'),
+(76, 'Kalinga', 'Kalinga', 'Kalinga', '2022-01-01 00:00:00'),
+(77, 'La Union', 'La Union', 'La Union', '2022-01-01 00:00:00'),
+(78, 'Laguna', 'Laguna Province', 'Laguna', '2022-01-01 00:00:00'),
+(79, 'Laguna - Binan', 'Laguna - Binan', 'Binan Laguna', '2022-01-01 00:00:00'),
+(80, 'Laguna - Cabuyao', 'Laguna - Cabuyao', 'Cabuyao Laguna', '2022-01-01 00:00:00'),
+(81, 'Laguna - Calamba', 'Laguna - Calamba', 'Calamba Laguna', '2022-01-01 00:00:00'),
+(82, 'Laguna - Los Banos', 'Laguna - Los Banos', 'Los Banos Laguna', '2022-01-01 00:00:00'),
+(83, 'Laguna - San Pablo', 'Laguna - San Pablo', 'San Pablo Laguna', '2022-01-01 00:00:00'),
+(84, 'Laguna - San Pedro', 'Laguna - San Pedro ', 'San Pedro Laguna', '2022-01-01 00:00:00'),
+(85, 'Laguna - Santa Rosa', 'Laguna - Santa Rosa ', 'Sta. Rosa Laguna', '2022-01-01 00:00:00'),
+(86, 'Lanao Del Norte', 'Lanao Del Norte', 'Lanao Del Norte', '0000-00-00 00:00:00'),
+(87, 'Lanao Del Norte - Iligan', 'Lanao Del Norte - Iligan City', 'Iligan City', '0000-00-00 00:00:00'),
+(88, 'Lanao Del Sur', 'Lanao Del Sur', 'Lanao Del Sur', '0000-00-00 00:00:00'),
+(89, 'Leyte', 'Leyte Province', 'Leyte', '0000-00-00 00:00:00'),
+(90, 'Leyte - Baybay', 'Leyte - Baybay', 'Baybay Leyte', '0000-00-00 00:00:00'),
+(91, 'Leyte - Ormoc', 'Leyte - Ormoc', 'Ormoc Leyte', '0000-00-00 00:00:00'),
+(92, 'Leyte - Tacloban', 'Leyte - Tacloban', 'Tacloban Leyte', '0000-00-00 00:00:00'),
+(93, 'Maguindanao', 'Maguindanao', 'Maguindanao', '0000-00-00 00:00:00'),
+(94, 'Marinduque', 'Marinduque', 'Marinduque', '0000-00-00 00:00:00'),
+(95, 'Masbate', 'Masbate', 'Masbate', '0000-00-00 00:00:00'),
+(96, 'Misamis Occidental', 'Misamis Occidental Province', 'Misamis Occidental', '0000-00-00 00:00:00'),
+(97, 'Misamis Occidental - Oroq', 'Misamis Occidental - Oroquieta', 'Oroqueta Misamis ', '0000-00-00 00:00:00'),
+(98, 'Misamis Occidental - Ozam', 'Misamis Occidental - Ozamiz', 'Ozamis City', '0000-00-00 00:00:00'),
+(99, 'Misamis Oriental', 'Misamis Oriental Province', 'Misamis Oriental', '0000-00-00 00:00:00'),
+(100, 'Misamis Oriental - Cagaya', 'Misamis Oriental - Cagayan De Oro City', 'Cagayan De Oro City', '0000-00-00 00:00:00'),
+(101, 'Mountain Province', 'Mountain Province', 'Mountain Province', '2022-01-01 00:00:00'),
+(102, 'Metro Manila - Caloocan', 'Metro Manila - Caloocan City', 'Metro Manila Caloocan Cit', '2022-01-01 00:00:00'),
+(103, 'Metro Manila - Las Pinas', 'Metro Manila - Las Pinas City', 'Metro Manila Las Pinas Ci', '2022-01-01 00:00:00'),
+(104, 'Metro Manila - Makati Cit', 'Metro Manila - Makati City', 'Metro Manila Makati City', '2022-01-01 00:00:00'),
+(105, 'Metro Manila - Malabon', 'Metro Manila - Malabon City', 'Metro Manila Malabon City', '2022-01-01 00:00:00'),
+(106, 'Metro Manila - Mandaluyon', 'Metro Manila - Mandaluyong City', 'Metro Manila - Mandaluyon', '2022-01-01 00:00:00'),
+(107, 'Metro Manila - Manila Cit', 'Metro Manila - Manila City', 'Metro Manila Manila', '2022-01-01 00:00:00'),
+(109, 'Metro Manila - Marikina', 'Metro Manila - Marikina City', 'Metro Manila Marikina Cit', '2022-01-01 00:00:00'),
+(110, 'Metro Manila - Muntilunpa', 'Metro Manila - Muntinlupa City', 'Metro Manila - Muntinlupa', '2022-01-01 00:00:00'),
+(111, 'Metro Manila - Navotas', 'Metro Manila - Navotas City', 'Metro Manila - Navotas Ci', '2022-01-01 00:00:00'),
+(112, 'Metro Manila - Paranaque', 'Metro Manila - Paranaque City', 'Metro Manila Paranaque Ci', '2022-01-01 00:00:00'),
+(113, 'Metro Manila - Pasay', 'Metro Manila - Pasay City', 'Metro Manila - Pasay City', '2022-01-01 00:00:00'),
+(114, 'Metro Manila - Pasig', 'Metro Manila - Pasig City', 'Metro Manila - Pasig City', '2022-01-01 00:00:00'),
+(115, 'Metro Manila - Pateros', 'Metro Manila - Pateros', 'Metro Manila - Pateros Ci', '2022-01-01 00:00:00'),
+(116, 'Metro Manila - QC', 'Metro Manila -Quezon City', 'Metro Manila Quezon City', '2022-01-01 00:00:00'),
+(117, 'Metro Manila - - San Juan', 'Metro Manila - San Juan City', 'Metro Manila San Juan Cit', '2022-01-01 00:00:00'),
+(118, 'Metro Manila - Taguig Cit', 'Metro Manila - Taguig City', 'Metro Manila Taguig City', '2022-01-01 00:00:00'),
+(119, 'Metro Manila - Valenzuela', 'Metro Manila - Valenzuela City', 'Metro Manila Valenzuela C', '2022-01-01 00:00:00'),
+(120, 'Negros Occidental', 'Negros Occidental Province', 'Negros Occidental', '2022-01-01 00:00:00'),
+(121, 'Negros Occidental - Bacol', 'Negros Occidental - Bacolod City', 'Bacolod City', '2022-01-01 00:00:00'),
+(122, 'Negros Oriental', 'Negros Oriental Province', 'Negros Oriental', '2022-01-01 00:00:00'),
+(123, 'Negros Oriental - Dumague', 'Negros Oriental - Dumaguete', 'Dumaguete City', '2022-01-01 00:00:00'),
+(124, 'Northern Samar', 'Northern Samar', 'Northern Samar', '2022-01-01 00:00:00'),
+(125, 'Nueva Ecija', 'Nueva Ecija Province', 'Nueva Ecija', '2022-01-01 00:00:00'),
+(126, 'Nueva Ecija - Cabanatuan', 'Nueva Ecija - Cabanatuan', 'Cabanatuan Nueva Ecija', '2022-01-01 00:00:00'),
+(127, 'Nueva Ecija - Gapan', 'Nueva Ecija - Gapan', 'Gapan Nueva Ecija', '2022-01-01 00:00:00'),
+(128, 'Nueva Viscaya', 'Nueva Viscaya', 'Nueva Viscaya', '2022-01-01 00:00:00'),
+(129, 'Occidental Mindoro', 'Occidental Mindoro', 'Occidental Mindoro', '2022-01-01 00:00:00'),
+(130, 'Oriental Mindoro', 'Oriental Mindoro', 'Oriental Mindoro', '2022-01-01 00:00:00'),
+(131, 'Palawan', 'Palawan Province', 'Palawan', '2022-01-01 00:00:00'),
+(132, 'Palawan - El Nido', 'Palawan - El Nido', 'El Nido Palawan', '2022-01-01 00:00:00'),
+(133, 'Palawan - Puerto Princesa', 'Palawan - Puerto Princesa', 'Puerto Princesa Palawan', '2022-01-01 00:00:00'),
+(134, 'Pamgpanga - Mabalacat', 'Pampanga - Mabalacat', 'Mabalacat Pampanga', '2022-01-01 00:00:00'),
+(135, 'Pampanga', 'Pampanga Province', 'Pampanga', '2022-01-01 00:00:00'),
+(136, 'Pampanga - Angeles', 'Pampanga - Angeles City', 'Angeles City Pampanga', '2022-01-01 00:00:00'),
+(137, 'Pampanga - San Fernando', 'Pampanga - San Fernando', 'San Fernando Pampanga', '2022-01-01 00:00:00'),
+(138, 'Pangasinan', 'Pangasinan Province', 'Pangasinan', '2022-01-01 00:00:00'),
+(139, 'Pangasinan - Alaminos', 'Pangasinan - Alaminos ', 'Alaminos Pangasinan', '2022-01-01 00:00:00'),
+(140, 'Pangasinan - Dagupan', 'Pangasinan - Dagupan City ', 'Dagupan City Pangasinan', '2022-01-01 00:00:00'),
+(141, 'Pangasinan - San Carlos', 'Pangasinan - San Carlos ', 'San Carlos Pangasinan', '2022-01-01 00:00:00'),
+(142, 'Pangasinan - Urdaneta', 'Pangasinan - Urdaneta City ', 'Urdaneta City Pangasinan', '2022-01-01 00:00:00'),
+(143, 'Quezon', 'Quezon Province', 'Quezon Province', '2022-01-01 00:00:00'),
+(144, 'Quezon - Infanta', 'Quezon - Infanta ', 'Infanta Quezon', '2022-01-01 00:00:00'),
+(145, 'Quezon - Lucena', 'Quezon - Lucena City ', 'Lucena City Quezon', '2022-01-01 00:00:00'),
+(146, 'Quezon - Mauban', 'Quezon - Mauban ', 'Mauban Quezon', '2022-01-01 00:00:00'),
+(147, 'Quirino', 'Quirino', 'Quirino', '2022-01-01 00:00:00'),
+(148, 'Rizal - Antipolo', 'Rizal - Antipolo ', 'Antipolo Rizal', '2022-01-01 00:00:00'),
+(149, 'Rizal - Binangonan', 'Rizal - Binangonan ', 'Binangonan Rizal', '2022-01-01 00:00:00'),
+(150, 'Rizal - Cainta', 'Rizal - Cainta', 'Cainta Rizal', '2022-01-01 00:00:00'),
+(151, 'Rizal - Morong', 'Rizal - Morong ', 'Morong Rizal', '2022-01-01 00:00:00'),
+(152, 'Rizal - Rodriguez', 'Rizal - Rodriguez', 'Rodriguez Rizal', '2022-01-01 00:00:00'),
+(153, 'Rizal - San Mateo', 'Rizal - San Mateo', 'San Mateo Rizal', '2022-01-01 00:00:00'),
+(154, 'Rizal - Tanay', 'Rizal - Tanay', 'Tanay Rizal', '2022-01-01 00:00:00'),
+(155, 'Rizal - Taytay', 'Rizal - Taytay', 'Taytay Rizal', '2022-01-01 00:00:00'),
+(156, 'Rizal Province', 'Rizal Province', 'Rizal Province', '2022-01-01 00:00:00'),
+(157, 'Romblon', 'Romblon', 'Romblon', '0000-00-00 00:00:00'),
+(158, 'Samar', 'Samar', 'Samar', '0000-00-00 00:00:00'),
+(159, 'Samar - Calbayog', 'Samar - Calbayog', 'Calbayog Samar', '0000-00-00 00:00:00'),
+(160, 'Samar - Catbalogan', 'Samar - Catbalogan', 'Catbalogan Samar', '2022-01-19 00:00:00'),
+(161, 'Sarangani', 'Sarangani', 'Sarangani', '2022-01-19 00:00:00'),
+(162, 'Siquijor', 'Siquijor', 'Siquijor', '2022-01-19 00:00:00'),
+(163, 'Sorsogon', 'Sorsogon', 'Sorsogon', '2022-01-19 00:00:00'),
+(164, 'South Cotabato', 'South Cotabato Province', 'South Cotabato', '2022-01-19 00:00:00'),
+(165, 'South Cotabato - General ', 'South Cotabato - General Santos City', 'General Santos City', '2022-01-19 00:00:00'),
+(166, 'South Cotabato - Koronada', 'South Cotabato - Koronadal', 'Koronadal, South Cotabato', '2022-01-19 00:00:00'),
+(167, 'Leyte - Southern Leyte', 'Leyte - Southern Leyte', 'Southern Leyte', '0000-00-00 00:00:00'),
+(168, 'Sultan Kudarat', 'Sultan Kudarat', 'Sultan Kudarat', '0000-00-00 00:00:00'),
+(169, 'Sulu', 'Sulu', 'Sulu', '0000-00-00 00:00:00'),
+(170, 'Surigao Del Norte', 'Surigao Del Norte', 'Surigao Del Norte', '0000-00-00 00:00:00'),
+(171, 'Surigao Del Sur', 'Surigao Del Sur', 'Surigao Del Sur', '0000-00-00 00:00:00'),
+(172, 'Cavite - Tagaytay', 'Cavite - Tagaytay City', 'Tagaytay City Cavite Bata', '2022-01-01 00:00:00'),
+(173, 'Tarlac', 'Tarlac Province', 'Tarlac Province', '2022-01-01 00:00:00'),
+(174, 'Tarlac - Tarlac City', 'Tarlac City', 'Tarlac City', '2022-01-01 00:00:00'),
+(175, 'Tawi Tawi', 'Tawi Tawi', 'Tawi Tawi', '2022-01-01 00:00:00'),
+(176, 'Zambales', 'Zambales Province', 'Zambales', '0000-00-00 00:00:00'),
+(177, 'Zambales - Iba', 'Zambales - Iba', 'Iba Zambales', '0000-00-00 00:00:00'),
+(178, 'Zambales - Olongapo', 'Zambales - Olongapo City', 'Olongapo City', '0000-00-00 00:00:00'),
+(179, 'Zambales - Subic', 'Zambales - Subic', 'Subic Zambales', '0000-00-00 00:00:00'),
+(180, 'Zamboanga Del Norte', 'Zamboanga Del Norte', 'Zamboanga Del Norte', '0000-00-00 00:00:00'),
+(181, 'Zamboanga Del Norte - Dap', 'Zamboanga Del Norte - Dapitan', 'Dapitan City', '0000-00-00 00:00:00'),
+(182, 'Zamboanga Del Norte - Dip', 'Zamboanga Del Norte - Dipolog City', 'Dipolog City', '0000-00-00 00:00:00'),
+(183, 'Zamboanga Del Sur', 'Zamboange Del Sur Province', 'Zamboanga Del Sur', '0000-00-00 00:00:00'),
+(184, 'Zamboanga Del Sur - Pagad', 'Zamboanga Del Sur - Pagadian City', 'Pagadian City', '0000-00-00 00:00:00'),
+(185, 'Zamboanga Del Sur - Zambo', 'Zamboanga City Zamboanga Del Sur', 'Zamboanga City', '0000-00-00 00:00:00'),
+(186, 'Zamboanga Sibugay', 'Zamboanga Sibugay', 'Zamboanga Sibugay', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_membertype`
+--
+
+CREATE TABLE `a_membertype` (
+  `recno` int(11) NOT NULL,
+  `membertypecode` varchar(25) DEFAULT NULL,
+  `membertypedesc` text,
+  `membertypetag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_membertype`
+--
+
+INSERT INTO `a_membertype` (`recno`, `membertypecode`, `membertypedesc`, `membertypetag`, `dateinserted`) VALUES
+(1, 'Blue', 'Free general membership', '', '2021-10-31 06:00:14'),
+(2, 'Silver', 'Paid silver membership', '', '2021-10-31 05:57:52'),
+(3, 'Gold', 'Paid gold membership', '', '2021-10-31 05:28:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_mincontract`
+--
+
+CREATE TABLE `a_mincontract` (
+  `recno` int(11) NOT NULL,
+  `mincontractcode` varchar(25) DEFAULT NULL,
+  `mincontractdesc` text,
+  `mincontracttag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_mincontract`
+--
+
+INSERT INTO `a_mincontract` (`recno`, `mincontractcode`, `mincontractdesc`, `mincontracttag`, `dateinserted`) VALUES
+(1, 'Short Term', '1 day to less than 3 months', 'Short Term', '2021-10-31 07:17:48'),
+(2, '3 months', 'At least 3 months', '3 Months Stay', '2021-10-31 07:18:40'),
+(3, '6 months', 'At least 6 months', '6 Months Contract', '2021-10-31 07:19:00'),
+(4, '1 year', 'At least 1 year', '1 Year Contract', '2021-10-31 07:19:21'),
+(5, '2 years', 'At least 2 years', 'Long Term Contract', '2021-10-31 07:19:39'),
+(6, '5 years', 'At least 5 years', '5 Years Contract', '2021-10-31 07:20:05'),
+(7, 'Long Term', '10 years or longer', 'Long Term Lease', '2021-10-31 07:20:23'),
+(8, 'Sale', 'N/A For Sale', 'Best Deal', '2021-11-17 12:20:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_paymentterm`
+--
+
+CREATE TABLE `a_paymentterm` (
+  `recno` int(11) NOT NULL,
+  `paytermcode` varchar(25) DEFAULT NULL,
+  `paytermdesc` text,
+  `paytermtag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_propertyclass`
+--
+
+CREATE TABLE `a_propertyclass` (
+  `recno` int(11) NOT NULL,
+  `proptypecode` varchar(25) DEFAULT NULL,
+  `propclasscode` varchar(25) DEFAULT NULL,
+  `propclassdesc` text,
+  `propclasstag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_propertyclass`
+--
+
+INSERT INTO `a_propertyclass` (`recno`, `proptypecode`, `propclasscode`, `propclassdesc`, `propclasstag`, `dateinserted`) VALUES
+(1, 'Condo', 'Condo 01', 'Studio type condo', 'Studio', '2021-10-31 06:29:22'),
+(2, 'Condo', 'Condo 02', '1 Bedroom', '1 Bedroom', '2021-10-31 06:30:00'),
+(3, 'Condo', 'Condo 03', '2 Bedroom', '2 Bedroom', '2021-10-31 06:30:21'),
+(4, 'Condo', 'Condo 04', '3 Bedroom', '3 Bedroom', '2021-10-31 06:56:55'),
+(5, 'Condo', 'Condo 05', '4 Bedroom', '4 Bedroom', '2021-10-31 06:58:45'),
+(6, 'Condo', 'Condo 06', '5 Bedroom & Bigger', '5 Bedroom', '2021-10-31 07:00:45'),
+(7, 'Lot', 'Lot 01', '< 100 sqm', 'Small Lots', '2021-10-31 07:01:47'),
+(8, 'Lot', 'Lot 02', '100 sqm to < 1000 sqm', '100sqm', '2021-10-31 07:03:02'),
+(9, 'Lot', 'Lot 03', '1000 sqm to < 5000 sqm', '1000sqm', '2021-10-31 07:06:20'),
+(10, 'Lot', 'Lot 04', '5000 sqm to < 1 hectare', '5000sqm', '2021-12-03 01:13:28'),
+(11, 'Lot', 'Lot 05', '1 hectare and bigger', '1 Hectare', '2021-12-03 01:14:03'),
+(12, 'Office', 'Office 01', '< 100 sqm', 'Small Office', '2021-12-03 01:18:11'),
+(13, 'Office', 'Office 02', '100 sqm < 500 sqm', '100sqm', '2021-12-03 01:19:31'),
+(14, 'Office', 'Office 03', '500 sqm to < 1000 sqm', '500sqm', '2021-12-03 01:21:34'),
+(15, 'Office', 'Office 04', '1000 sqm and bigger', '1000sqm', '2021-12-03 01:27:27'),
+(16, 'Building', 'Building 01', '< 4 floors', 'Low Rise', '2021-12-03 04:26:45'),
+(17, 'Building', 'Building 02', '5 floors to <10 floors', 'Mid Rise', '2021-12-03 04:29:29'),
+(18, 'Building', 'Building 03', '10 floors and higher', 'High Rise', '2021-12-03 04:30:43'),
+(19, 'Beach', 'Beach 01', '< 100 sqm', 'Small Beach', '2021-12-03 04:31:39'),
+(20, 'Beach', 'Beach 02', '100 sqm to < 1000 sqm', '100sqm', '2021-12-03 04:43:16'),
+(21, 'Beach', 'Beach 03', '1000 sqm to < 5000 sqm', '1000sqm', '2021-12-03 04:43:46'),
+(22, 'Beach', 'Beach 04', '5000 sqm to < 1 hectare', '5000sqm', '2021-12-03 04:44:12'),
+(23, 'Beach', 'Beach 05', '1 hectare and bigger', '1 Hectare', '2021-12-03 04:44:40'),
+(24, 'Commercial', 'Space 01', '< 50 sqm', 'Small Stall', '2021-12-03 04:46:12'),
+(25, 'Commercial', 'Space 02', '50 sqm to < 100 sqm', '50sqm', '2021-12-03 04:46:38'),
+(26, 'Commercial', 'Space 03', '100 sqm to < 500 sqm', '100sqm', '2021-12-03 04:47:13'),
+(27, 'Commercial', 'Space 04', '500 sqm to < 1000 sqm', '500sqm', '2021-12-03 04:47:35'),
+(28, 'Commercial', 'Space 05', '1000 sqm and bigger', '1000sqm', '2021-12-03 04:48:13'),
+(29, 'Farm', 'Farm 01', '< 500 sqm', 'Small Farm', '2021-12-03 04:48:56'),
+(30, 'Farm', 'Farm 02', '500 sqm to 1000 sqm', '500sqm', '2021-12-03 04:49:14'),
+(31, 'Farm', 'Farm 03', '1000 sqm to 5000 sqm', '1000sqm', '2021-12-03 04:49:34'),
+(32, 'Farm', 'Farm 04', '5000 sqm to < 1 hectare', '5000sqm', '2021-12-03 04:50:01'),
+(33, 'Farm', 'Farm 05', '1 hectare to < 5 hectares', '1 Hectare', '2021-12-03 04:50:46'),
+(34, 'Farm', 'Farm 06', '5 hectares to < 20 hectares', '5 Hectares', '2021-12-03 04:51:25'),
+(35, 'Farm', 'Farm 07', '20 hectares and bigger', 'Big Farm', '2021-12-03 04:53:05'),
+(36, 'Hotel', 'Hotel 01', '< 10 million', 'Bed and Breakfast', '2021-12-03 05:20:50'),
+(37, 'Hotel', 'Hotel 02', '10 million to < 50 million', 'Small Hotel', '2021-12-03 05:21:52'),
+(38, 'Hotel', 'Hotel 03', '50 million to < 100 million', 'Boutique Hotel', '2021-12-03 05:22:22'),
+(39, 'Hotel', 'Hotel 04', '100 million to < 500 million', 'Big Hotel', '2021-12-03 05:27:21'),
+(40, 'Hotel', 'Hotel 05', '500 million and higher', 'Prime Hotel', '2021-12-03 05:28:04'),
+(41, 'House', 'House 01', '< 100 sqm floor area', 'Small House', '2021-12-03 05:38:54'),
+(42, 'House', 'House 02', '100 sqm to < 250 sqm Floor Area', '100sqm FA', '2021-12-03 05:39:44'),
+(43, 'House', 'House 03', '250 sqm to < 500 sqm Floor Area', '250sqm FA', '2021-12-03 05:42:56'),
+(44, 'House', 'House 04', '500 sqm to < 1000 sqm Floor Area', '500sqm FA', '2021-12-03 05:43:32'),
+(45, 'House', 'House 05', '1000 sqm and bigger Floor Area', 'Big House', '2021-12-03 05:43:59'),
+(46, 'Warehouse', 'Warehouse 01', '< 100 sqm', 'Storage Space', '2021-12-03 05:46:53'),
+(47, 'Warehouse', 'Warehouse 02', '100 sqm to < 1000 sqm', 'Small Warehouse', '2021-12-03 05:47:20'),
+(48, 'Warehouse', 'Warehouse 03', '1000 sqm to < 5000 sqm', '1000sqm', '2021-12-03 05:47:43'),
+(49, 'Warehouse', 'Warehouse 04', '5000 sqm and bigger', 'Big Warehouse', '2021-12-03 05:48:24'),
+(50, 'Others', 'Others', 'Other classifications not listed', '', '2021-12-19 08:22:39'),
+(51, 'Condo', 'Condo 08', 'Residential Parking', 'Residential Parking', '2022-01-24 04:40:13'),
+(52, 'Office', 'Office 08', 'Office Parking', 'Office Parking', '2022-01-24 04:44:38'),
+(53, 'Rooms', 'Room 01', 'Studio type', 'Studio Type', '2022-02-03 10:03:37'),
+(54, 'Rooms', 'Room 02', 'Studio Standard', 'Hotel Room', '2022-02-03 10:04:23'),
+(55, 'Rooms', 'Room 03', 'Studio PWD', 'Studio with PWD Access', '2022-02-03 10:05:25'),
+(56, 'Rooms', 'Room 04', '1 Bedroom', '1 bedroom  Hotel Room', '2022-02-03 10:06:01'),
+(57, 'Rooms', 'Room 05', '1 Bedroom Suite', '1 Bedroom Suite Room', '2022-02-03 10:08:49'),
+(58, 'Rooms', 'Room 06', '1 Bedroom PWD', '1 Bedroom PWD Access', '2022-02-03 10:09:29'),
+(59, 'Rooms', 'Room 07', '2 Bedroom', '2 Bedroom Accommodation', '2022-02-03 10:10:39'),
+(60, 'Rooms', 'Room 08', '2 Bedroom Premium', 'Two Bedroom Suite Room', '2022-02-03 10:11:56'),
+(61, 'Rooms', 'Room 09', '2 Bedroom PWD', '2 Bedroom with PWD Access', '2022-02-03 10:12:23'),
+(62, 'Rooms', 'Room 10', '3 Bedroom', '3 Bedroom Guest House', '2022-02-03 10:14:16'),
+(63, 'Rooms', 'Room 11', '3 Bedroom Premium', '3 bedroom premium room', '2022-02-03 10:15:44'),
+(64, 'Rooms', 'Room 12', '3 Bedroom PWD', '3 Bedroom with PWD Access', '2022-02-03 10:16:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_propertytype`
+--
+
+CREATE TABLE `a_propertytype` (
+  `recno` int(11) NOT NULL,
+  `proptypecode` varchar(25) DEFAULT NULL,
+  `proptypedesc` text,
+  `proptypetag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `a_propertytype`
+--
+
+INSERT INTO `a_propertytype` (`recno`, `proptypecode`, `proptypedesc`, `proptypetag`, `dateinserted`) VALUES
+(1, 'Condo', 'Residential condominium', 'Condo', '2021-10-31 06:00:58'),
+(2, 'Lot', 'Vacant lot, residential lot, commercial lot', 'Lot', '2021-10-31 06:02:29'),
+(3, 'Office', 'Office space', 'Office', '2021-10-31 06:03:51'),
+(4, 'Farm', 'Farmland, agricultural land, plantation', 'Farm', '2021-10-31 06:39:09'),
+(5, 'House', 'House & lot, apartment, single-detached, duplex, rowhouse', 'House', '2021-10-31 06:40:43'),
+(6, 'Commercial', 'Commercial space', 'Commercial', '2021-10-31 06:41:20'),
+(7, 'Beach', 'Beach lot, lot with beach front, lot close to beach', 'Beach', '2021-10-31 06:43:21'),
+(8, 'Warehouse', 'Warehouse, storage', 'Warehouse', '2021-10-31 06:46:42'),
+(9, 'Building', 'Commercial building, office building', 'Building', '2021-10-31 06:48:34'),
+(10, 'Hotel', 'Hotel, Beach resort, Mountain resort, Farm resort, Vacation resort, Golf resort', 'Hotel', '2021-11-02 15:07:34'),
+(11, 'Others', 'Other property types not listed', 'Properties', '2021-12-19 08:16:30'),
+(12, 'Rooms', 'Hotel Rooms, Inn, Guest House, Bed and Breakfast, Lodging House, AirBnB Rooms', 'AirBnB, Bed and Breakfast', '2022-02-03 10:00:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_ads`
+--
+
+CREATE TABLE `b_ads` (
+  `recno` int(11) NOT NULL,
+  `adscode` varchar(25) DEFAULT NULL,
+  `xy` varchar(25) NOT NULL DEFAULT 'x',
+  `star_id` int(25) DEFAULT '0',
+  `adstitle` varchar(255) DEFAULT NULL,
+  `adsdesc` text,
+  `listingcode` varchar(25) DEFAULT NULL,
+  `listtypecode` varchar(25) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `securitydeposit` double DEFAULT NULL,
+  `mincontract` varchar(25) DEFAULT NULL,
+  `downpayment` double DEFAULT NULL,
+  `paymentterm` text NOT NULL,
+  `status` varchar(25) NOT NULL DEFAULT 'on',
+  `word_tags` varchar(255) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `b_ads`
+--
+
+INSERT INTO `b_ads` (`recno`, `adscode`, `xy`, `star_id`, `adstitle`, `adsdesc`, `listingcode`, `listtypecode`, `price`, `securitydeposit`, `mincontract`, `downpayment`, `paymentterm`, `status`, `word_tags`, `dateinserted`) VALUES
+(1, 'c_1636627505', 'x', 0, 'Unfurnished Studio in One Eastwood 25sqm', 'A studio-type condo ideal for 1 to 3 occupants. Located on the low zone of the One Eastwood with windows overlooking Eastwood Avenue, the main entrance road of Eastwood City.<br><br>Affordable condo with aircon, hot shower, clothes cabinet, and kitchen overhead cabinets and under-counter cabinets.<br>', '1637467429285', 'For Rent', 15000, 30000, '6 months', 0, '2 months deposit, 1st month advance, and complete post-dated checks for the remaining months.<br><br>Rent price is inclusive of association dues.<br>', 'on', 'studio, eastwood city, condo for rent, Eastwood Legrand 3', '2022-02-08 01:47:55'),
+(2, 'c_1636627505', 'x', 0, 'Unfurnished Studio in One Eastwood 25sqm', 'A ready-for-occupancy condo ideal for 1 to 3 occupants. Located on the low zone of the One Eastwood with windows overlooking Eastwood Avenue, the main entrance road of Eastwood City.<br><br>Affordable condo studio-type with aircon, hot shower, clothes cabinet, and kitchen overhead cabinets and under-counter cabinets.<br>', '1637472519836', 'For Rent', 14000, 28000, '6 months', 0, '2 months deposit, 1st month advance, complete post-dated checks for the remaining months.<br><br>Rent is inclusive of association dues.', 'on', 'studio, eastwood city, condo for rent, One eastwood', '2022-01-08 01:11:26'),
+(3, 'c_1636627505', 'x', 0, 'Fully furnished 1-bedroom in One Eastwood', 'Nicely furnished 40sqm 1-bedroom condo in One Eastwood. This unit is ideal for 1 to 3 occupants. Located in the high zone of One Eastwood.<br><br>Comfortable living space with windows overlooking C5, Pasig area, and Ortigas skyline.', '1637473991732', 'For Rent', 38000, 76000, '6 months', 0, '2 months deposit, 1st month advance, complete post-dated checks for the remaining months.<br><br>Rent is inclusive of association dues.', 'on', 'condo for rent, 1 bedroom condo, eastwood city, condo for rent', '2022-02-08 01:54:10'),
+(4, 'c_1636627505', 'x', 0, 'Unfurnished Studio Type Condo in Eastwood Legrand 3', 'Unfurnished 30sqm studio-type condo in Eastwood Legrand 3. This unit is ideal for 1 to 3 occupants. Located on the low zone of Eastwood Legrand 3 with windows overlooking the swimming pool.', '1637475043682', 'For Rent', 18000, 36000, '6 months', 0, '2 months deposit, 1st month advance, and complete post-dated checks for the remaining months.', 'on', NULL, '2021-11-21 06:14:38'),
+(5, 'c_1636627505', 'x', 0, 'Furnished Studio Type Condo in Eastwood Legrand 3', 'Move into this comfortable studio-type condo unit is ideal for 1 to 2 occupants. Located on the low zone of Eastwood Legrand 3 with windows on the Palm Tree Avenue side and overlooking Eastwood Citywalk.<br><br>Affordably priced condo furnished with all the basic necessities.<br>', '1637488511527', 'For Rent', 18000, 36000, '6 months', 0, '2 months deposit, 1st month advance, and complete post-dated checks for the remaining months.<br><br>Rent is inclusive of association dues.', 'on', 'studio, eastwood city, condo for rent, Eastwood Legrand 3', '2022-01-08 01:12:19'),
+(6, 'c_1636627505', 'x', 0, 'Unfurnished Studio Type Condo in Eastwood Legrand 3', 'Unfurnished 30sqm studio-type condo in Eastwood Legrand 3. This unit is ideal for 1 to 3 occupants. Located on the low zone of Eastwood Legrand 3 with windows overlooking the swimming pool.', '1637475043682', 'For Rent', 15000, 36000, '6 months', 0, '2 months deposit, 1st month advance, and complete post-dated checks for the remaining months.', 'on', NULL, '2021-12-16 06:14:38'),
+(7, 'c_1636627505', 'x', 0, 'Fully furnished 2-bedroom Condo in Eastwood Parkview 1', 'This 81sqm fully furnished 2-bedroom unit is ideal for 3 to 6 occupants. Located on the high zone of Eastwood Parkview 1.', '1637494138567', 'For Rent', 35000, 70000, '6 months', 0, '2 months deposit, 1st month rent advance, and complete post-dated checks for the remaining months.<br><br>Rent is inclusive of association dues.', 'off', NULL, '2021-11-21 11:35:56'),
+(8, 'c_1636627505', 'x', 0, 'Fully Furnished Studio Type Condo in Eastwood Legrand 3', 'Make this comfortable studio-type condo your new home in Eastwood City. <br><br>Affordably priced studio-type condo unit ideal for 1 to 2 occupants. Located on the low zone of Eastwood Legrand 3 with windows on the Palm Tree Avenue side and overlooking Eastwood Citywalk.<br>', '1637476021581', 'For Rent', 18000, 36000, '6 months', 0, '2 months deposit, 1st month advance, and complete post-dated checks for the remaining months.<br><br>Rent is inclusive of association dues.', 'on', 'studio, eastwood city, condo for rent', '2022-01-19 02:08:37'),
+(9, 'c_1636627505', 'x', 0, 'Fully furnished 38sqm 1-bedroom in Eastwood Parkview', 'Live comfortably in this cozy 1-bedroom ideal for 1 to 3 occupants. Located on top of Eastwood Mall with its lobby located right beside the mall&#39;s main entrance.', '1637492663985', 'For Rent', 20000, 40000, '6 months', 0, '2 months security deposit is required', 'on', 'studio, 1 bedroom condo, eastwood city, condo for rent', '2022-01-08 01:24:48'),
+(10, 'c_1636627505', 'x', 0, 'Unfurnished Studio Type Condo in Eastwood Parkview 2', 'Experience compact but comfortable condo living in this studio-type condo located on top of Eastwood Mall. The lobby is conveniently located just a few steps from Eastwood Mall main entrance.', '1637492025730', 'For Rent', 13000, 26000, '6 months', 0, '2 months security deposit is required.', 'on', 'studio, eastwood city, condo for rent, Eastwood parkview 2', '2022-01-08 01:12:40'),
+(11, 'Chan_1636111563', 'x', 0, '2BR Condominium with balcony in Royal Palm Residences', 'Affordable two-bedroom condo within Royal Palm Residences in Acacia Estates. Relax at the balcony while having your afternoon snacks.', '1637495310437', 'For Rent', 23000, 46000, '6 months', 0, 'pdc or cash', 'on', 'condo with balcony, 2 bedroom condo, royal palm residences, condo for rent, condo with parking for lease, dmci acacia estates, taguig city', '2022-02-08 01:46:24'),
+(12, 'c_1636627505', 'x', 0, 'Unfurnished Studio Type Condo In Eastwood Legrand 3', 'A studio-type condo conveniently located on the amenity level of Eastwood Legrand 3. <br><br>Affordable and cozy condo ideal for 1 to 3 occupants.', '1637496112477', 'For Rent', 15000, 30000, '6 months', 0, '2 months deposit is required', 'on', 'unfurnished condo, studio, eastwood city, condo for rent, Eastwood Legrand 3', '2022-01-08 01:12:48'),
+(13, 'c_1636627505', 'x', 0, 'Unfurnished Studio Condo in Eastwood Legrand 3', 'A studio-type condo with a refreshing view of the swimming pool and amenity level of Eastwood Legrand 3. <br><br>Affordable and cozy condo ideal for 1 to 3 occupants.', '1637475043683', 'For Rent', 15000, 30000, '6 months', 0, '2 months security deposit is required.', 'on', 'studio, eastwood city, condo for rent, Eastwood Legrand 3', '2022-01-19 03:20:14'),
+(14, 'c_1636627505', 'x', 0, 'Semi-furnished 2-bedroom condo in Eastwood Parkview 2', 'Move into this nice and spacious two-bedroom condo in Eastwood Parkview 2. This unit is upgraded with tile flooring and built-in shelves and cabinets, and airconditioned bedrooms and living & dining areas. ', '1637492025742', 'For Rent', 35000, 70000, '1 year', 0, '2 months security deposit is required', 'on', '2 bedroom, eastwood city, condo for rent, eastwood excelsior', '2022-01-08 01:13:12'),
+(15, 'c_1636627505', 'x', 0, 'Studio Condo with Loft Sleeping Space in Eastwood Parkview 2', 'Experience comfort and convenience living in this compact studio-type condo with a loft sleeping space. This unit is located on the amenity level of Eastwood Parkview 2 with the swimming pool, gym, and garden just a few steps away from you main door.', '1637492025750', 'For Rent', 14000, 28000, '1 year', 0, '2 months security deposit is required', 'on', 'studio, eastwood city, condo for rent, eastwood parkview 2, loft studio', '2022-01-22 11:24:31'),
+(16, 'c_1636627505', 'x', 0, 'Unfurnished studio type condo in Eastwood Parkview 2', 'Best Deal! Clean title. Ready for occupancy. <br><br>This unique and interesting studio-type condo unit for sale at an attractive price is definitely a good buy.', '1637492025750', 'For Sale', 2800000, 0, 'Sale', 0, 'Negotiable', 'on', 'studio, eastwood city, condo for sale, loft condo', '2022-02-08 01:48:09'),
+(17, 'c_1636627505', 'x', 0, 'Unfurnished studio type condo in Eastwood Excelsior', 'A lovely studio-type convertible to a 1-bedroom condo. Simply fold the divider partition to keep your bedroom private or to expand your living space.', '1637492025758', 'For Rent', 15000, 30000, '6 months', 0, '2 months deposit is required.', 'on', 'studio, eastwood city, condo for rent, eastwood excelsior', '2022-01-19 01:16:47'),
+(18, 'c_1636627505', 'x', 0, 'Fully furnished 1-bedroom condominium in One Orchard Road 3', 'Make this nicely furnished one-bedroom condo your new home. Spacious and comfortable at an affordable rent.', '1637495143175', 'For Rent', 24000, 48000, '6 months', 0, '2 months deposit is required.', 'on', 'condo with balcony, 1 bedroom condo, one orchard road, eastwood city, condo for rent', '2022-02-08 01:48:17'),
+(19, 'c_1636627505', 'x', 0, 'Improved 2-bedroom condo in Eastwood Parkview 2', 'Rush Sale!<br><br>Grab this rare offer. Clean title. Ready for occupancy. <br><br>This nice and improved two-bedroom condominium unit for sale at a reasonable selling price is certainly a good property to buy.', '1637492025742', 'For Sale', 9500000, 0, 'Sale', 0, 'Negotiable', 'on', '2 bedroom condo, eastwood city, condo for sale, eastwood parkview 2', '2022-02-08 01:53:23'),
+(20, 'c_1636627505', 'x', 0, 'Furnished 2-Bedroom Condo in One Central Park', 'This fully furnished two-bedroom condominium has a balcony overlooking the Eastwood Open Park where concerts and events are held. Experience the best view of Eastwood City while enjoying your coffee from your balcony. ', '1637496704763', 'For Rent', 40000, 80000, '6 months', 0, '2 months security deposit is required', 'on', 'condo with balcony, one central park, 2 bedroom condo, eastwood city, condo for rent', '2022-01-08 01:14:29'),
+(21, 'c_1636627505', 'x', 0, 'Furnished 2-bedroom condo with balcony in Eastwood Park Residences', 'This fully furnished condominium has a balcony overlooking the Eastwood Open Park where concerts and events are held. Experience the best view of Eastwood City while enjoying your coffee from your balcony. ', '1637496492009', 'For Rent', 45000, 90000, '6 months', 0, '2 months security deposit is required.', 'on', 'condo with balcony, 2 bedroom condo, eastwood city, condo for rent', '2022-01-08 01:10:24'),
+(22, 'c_1636627505', 'x', 0, 'Fully furnished 2-Bedroom Condo in One Central Park', 'This fully furnished two-bedroom condominium has a balcony overlooking the Eastwood Open Park where concerts and events are held. Experience the best view of Eastwood City while enjoying your coffee from your balcony. ', '1637495249908', 'For Rent', 45000, 90000, '6 months', 0, '2 months security deposit is required.', 'on', '2 bedroom, eastwood city, condo for rent, Eastwood parkview 1', '2022-01-08 01:06:36'),
+(23, 'c_1636627505', 'x', 0, 'Furnished 1-bedroom condo in Eastwood Park Residences', 'Move into this adorable bachelor&#39;s pad located in Eastwood City, Libis, Quezon City, and live a comfortable and convenient lifestyle.', '1637496492002', 'For Rent', 25000, 50000, '6 months', 0, '2 months security deposit is required.', 'on', 'eastwood park residences, 1 bedroom condo, eastwood city, condo for rent', '2022-01-08 01:15:17'),
+(25, 'c_1636627505', 'x', 0, 'Unfurnished 1-Bedroom Condominium in One Orchard Road', 'Newly repainted and newly replaced bathroom fixtures. Be the first occupant of this newly refurbished studio unit converted to one bedroom condo.', '1637495143173', 'For Rent', 15000, 30000, '6 months', 0, '2 months security deposit is required', 'on', 'studio, eastwood city, condo for rent, one orchard road', '2022-01-08 01:15:30'),
+(26, 'c_1636627505', 'x', 0, 'Big 2-bedroom condominium with balcony in One Central Park', 'Rush Sale!<br><br>Grab this rare offer. A fully furnished two-bedroom condominium with balcony, plus tandem parking.<br><br>Clean title. Ready for occupancy. ', '1637496704763', 'For Sale', 12000000, 0, 'Sale', 0, 'Negotiable', 'on', 'condo with balcony, 2 bedroom condo, eastwood city, condo for sale, one central park', '2022-01-08 01:25:16'),
+(27, 'Jaramilla_1640536475', 'x', 0, 'Brand New House & Lot in BF Homes QC', 'Rush Sale!', '1640102727020', 'For Sale', 35000000, 0, 'Sale', 0, 'Negotiable', 'on', NULL, '2021-12-21 16:27:26'),
+(28, 'Chan_1636111563', 'x', 0, 'Furnished 1BR loft in One Rockwell East', 'A good buy!<br><br>Clean title.', '1639913281221', 'For Sale', 15000000, 0, 'Sale', 0, 'Negotiable', 'on', '1 bedroom condo, makati city, condo for sale, rockwell center, rockwell makati, one rockwell, loft 1 bedroom condo', '2022-01-08 01:22:06'),
+(29, 'Chan_1636111563', 'x', 0, 'Fully furnished 1-bedroom with balcony in Florence Way', 'This special limited unit is up for rent. An adorable and cozy one-bedroom unit that is nicely furnished to give a comfortable living.<br><br>', '1639913240358', 'For Rent', 35000, 70000, '6 months', 0, '2 months security deposit is required.', 'on', 'condo with balcony, 1 bedroom condo, mckinley hill, taguig city, condo for rent', '2022-01-08 01:19:50'),
+(30, 'Chan_1636111563', 'x', 0, 'RUSH SALE - Venice Studio Type Condominium', 'Rush sale! The selling price is lower than the current BIR zonal value.<br><br>This spacious studio has a balcony and is located in Venice Caruso. With a clean title and is ready for occupancy.', '1637495743777', 'For Sale', 7000000, 0, 'Sale', 1400000, 'negotiable', 'on', 'condo with balcony, studio condo, taguig city, mckinley hill, venice luxury residence, condo for rent', '2022-02-08 01:55:51'),
+(31, 'Chan_1636111563', 'x', 0, 'Fully furnished 1-Bedroom Condo in One Uptown Residence', 'Move to this beautiful and nicely furnished condominium in Bonifacio Global City, the newest community in Metro Manila, and enjoy the comfort and convenience of high-end living.<br><br>Located across The Grand Hyatt Hotel in Uptown BGC, Taguig City ', '1637495558012', 'For Rent', 30000, 60000, '6 months', 0, '2 months security deposit is required<br>Rent is inclusive of dues', 'on', 'One Uptown, BGC, 1 Bedroom, Condo for rent, Fort Bonifacio', '2022-02-08 01:54:58'),
+(32, 'Chan_1636111563', 'x', 0, 'Unfurnished Studio type condo in Morgan Suites', 'Affordable rental property in Mckinley Hill. Ideal for 1 to 2 occupants, for bachelors or bachelorettes, or for young couple.', '1637493691004', 'For Rent', 16000, 32000, '6 months', 0, '2 months security deposit is required', 'on', 'studio, Mckinley hill, condo in taguig city, condo for rent, morgan suites, unfurnished condo', '2022-01-12 03:08:21'),
+(33, 'Jaramilla_1640536475', 'x', 0, 'Big house and lot with swimming pool', 'Nice and neatly designed house and lot with swimming pool located in posh subdivision.', '1640102588349', 'For Sale', 160000000, 0, 'Sale', 0, 'Negotiable', 'on', 'ayala heights, house for sale in quezon city, house & lot with swimming pool, ', '2022-01-19 01:20:25'),
+(38, 'Jaramilla_1640536475', 'x', 0, 'Vacant lot for sale in North Fairview Park Subd', 'Good for townhouse development', '1640102874814', 'For Sale', 9000000, 0, 'Sale', 0, 'Negotiable', 'on', 'vacant lot for sale, north fairview park subdivision, quezon city lot', '2022-01-16 11:33:01'),
+(40, 'Chan_1636111563', 'x', 0, 'taken already', 'nice studio', '1637495900763', 'For Rent', 35000, 70000, '1 year', 0, 'advance', 'on', 'studio, proscenium, rockwell center, rockwell makati, makati city condo, condo for rent, Proscenium lincoln', '2022-01-08 01:23:12'),
+(61, 'Chan_1636111563', 'x', 0, 'Unfurnished Studio type condo with balcony in Venice Luxury Residence', 'This spacious studio has a balcony and is located in Venice Caruso. ', '1637495743777', 'For Rent', 25000, 50000, '6 months', 0, '2 months deposit is required.', 'on', 'condo with balcony, studio condo, taguig city, mckinley hill, , condo for rent', '2022-02-08 01:45:43'),
+(63, 'Jaramilla_1640536475', 'x', 0, 'Fully furnished 3BR in Parkside Villas', 'Rush Sale!', '1640536092144', 'For Sale', 14000000, 0, 'Sale', 0, 'Negotiable', 'on', NULL, '2021-12-26 16:31:50'),
+(64, 'Chan_1640540883', 'x', 0, 'Small and affordable farm in Alfonso Cavite', 'Rush sale!<br>Clean title!', '1640541145362', 'For Sale', 4000000, 0, 'Sale', 0, 'negotiable', 'off', 'tagaytay farm, farm for sale, alfonso cavite, small farm, batangas', '2022-01-08 01:34:09'),
+(65, 'Chan_1640540883', 'x', 0, '5-hectare Farm in Alfonso', 'Best value!', '1640541574881', 'For Sale', 175000000, 0, 'Sale', 0, 'Negotiable', 'on', 'farm for sale, alfonso cavite, tagaytay farm, farm in batangas', '2022-01-08 01:34:42'),
+(103, 'Chan_1636513284', 'x', 0, 'wetwe eary ru', 'erwe  09 &#39;p8-sd pojfa <br>ojg a&#39;ogjta<br>asjg[p &#39;a pawte', '1637032248324', 'For Rent', 7000, 140, '6 months', 0, 'jpasy asoiet toewrtwa term', 'on', NULL, '2021-11-16 03:13:14'),
+(118, 'Chan_1640540883', 'x', 0, 'Office Space for Lease IBM Plaza Eastwood City', 'Fitted Office Space is strategically located in the prime area of Eastwood City.<br><br>Rent ranges from PHP 550 to PHP 650 per sqm or Best Offer<br>IBM Plaza Building.', '1641572173691', 'For Rent', 487500, 1462500, '1 year', 0, 'Terms: 3 months Deposit, 3 months advance. PDCs for monthly rent.', 'on', 'IBM Plaza, Eastwood City, Office Space in Eastwood, Quezon City Office, Office for rent', '2022-01-07 16:36:50'),
+(119, 'Chan_1640540883', 'x', 0, 'Office Space for Lease IBM Plaza Eastwood City', 'Semi-Fitted and Fitted Office Space (ready for occupancy) strategically located in the prime area of Eastwood City.<br><br>Lease Rates from PHP 350 to PHP 650 / per sqm. (VAT exclusive)<br>Located at IBM Plaza Building.', '1641572838684', 'For Rent', 65000, 195000, '1 year', 0, 'Terms: 3 months Deposit, 3 months advance. PDCs for monthly rent.', 'on', 'Eastwood City, Office space for rent, IBM Plaza', '2022-01-22 11:18:27'),
+(120, 'Chan_1640540883', 'x', 0, 'Fitted Office Space for Lease Best Offer IBM Plaza Eastwood City QC', 'Semi-Fitted and Fitted Office Space (ready for occupancy) strategically located in the prime area of Eastwood City.<br><br>', '1641573000305', 'For Rent', 150800, 452400, '1 year', 0, 'Terms: 3 months Deposit, 3 months advance. PDCs for monthly rent.', 'on', 'IBM Plaza, Office Space for Rent, Eastwood City office', '2022-02-08 01:52:16'),
+(121, 'Chan_1640540883', 'x', 0, '265sqm Office Space for Lease Best Offer IBM Plaza Eastwood City QC', 'Semi-Fitted and Fitted Office Space (ready for occupancy) strategically located in the prime area of Eastwood City.<br><br>IBM Plaza building', '1641572929205', 'For Rent', 145750, 437250, '1 year', 0, '3 Months Deposit, 3 months advance. PDCs for monthly rent.', 'on', 'ibm plaza, quezon city office, office space for rent, eastwood city', '2022-01-07 16:47:04'),
+(122, 'Chan_1640540883', 'x', 0, '750 sqm Office Space for Lease Eastwood City Quezon City IBM Plaza', 'Fitted Office Space is strategically located in the prime area of Eastwood City.<br><br>Unit Type : Fitted Office Space<br>Price : Php 650 / sqm (VAT exclusive)<br>Unit Size : 750 sqm ( 501.20 and 248.80)<br>Location : 27th floor, IBM Plaza Building, Eastwood<br><br>', '1641573121297', 'For Rent', 487500, 1462500, '1 year', 0, 'Terms: 3 months Deposit, 3 months advance. PDCs for monthly rent.', 'on', 'IBM Plaza Building, Eastwood City, Fitted Office Space, Office for rent', '2022-01-07 16:50:19'),
+(124, 'Chan_1636111563', 'x', 0, 'Nicely furnished 1-bedroom with 1 parking in BGC 33sqm', 'Rush Sale. Selling below the market value<br>Titled condominium unit with parking<br>Fully furnished and ready for occupancy.<br><br>', '1642525350430', 'For Sale', 11500000, 0, 'Sale', 1150000, 'Upfront cash, bank financing, or rent-to-own', 'on', 'rush sale condo, condominium unit with parking for sale, condo in BGC, One Uptown Residence condo, Megaworld', '2022-01-18 17:06:36'),
+(125, 'Chan_1636111563', 'x', 0, 'Fully furnished 33sqm 1-bedroom condo unit with 1 parking', 'Rush sale. Ready for occupancy<br>Title Condominium unit with 1 parking<br>The selling price is lower than the current market price.', '1642527465903', 'For Sale', 11500000, 0, 'Sale', 1150000, 'Upfront cash, bank financing, or rent-to-own', 'on', 'lower than market price condo for sale, BGC condo, The fort condo for sale, condo near Grand Hyatt hotel', '2022-01-18 17:41:44'),
+(126, 'Chan_1636111563', 'x', 0, 'Ready For Occupancy 1-Bedroom with 1 parking', 'Titled residential condominium with 1 parking slot<br>Rush Sale. Best Deal<br>Selling at below the current market value', '1642528122013', 'For Sale', 11500000, 0, 'Sale', 1150000, 'Upfront cash, bank financing, or rent-to-own', 'on', 'condo for sale, condo with parking in BGC, one uptown residence condo for sale, best deal condo, rush sale condo in BGC', '2022-01-18 17:51:59'),
+(127, 'Chan_1636111563', 'x', 0, 'Condo with Parking in BGC Selling below market value', 'Best Deal. Rush Sale.<br>With discount for upfront cash buyer.<br>A rent-to-own payment scheme is available.<br>Also accepts bank financing<br>Titled properties<br>Ready for occupancy<br>', '1642528753042', 'For Sale', 11500000, 0, 'Sale', 1150000, 'Upfront cash, bank financing, or rent-to-own', 'on', 'best deal condo, properties for sale in BGC, condo with parking rush sale, Bonifacio Global City Condo for sale', '2022-01-18 18:02:54'),
+(128, 'Chan_1640540883', 'x', 0, 'Furnished 50sqm one bedroom condo with balcony in Grand Eastwood Palazzo', 'Grand Eastwood Palazzo is located in front of  Holy Family Chapel and beside Marketplace Supermarket.<br><br>50sqm 1-bedroom furnished, with balcony', '1642530479555', 'For Rent', 25000, 50000, '6 months', 0, 'Rent is inclusive of dues.<br>2 months refundable deposit is required.', 'on', 'Grand Eastwood Palazzo, condo with balcony, condo leasing, Quezon city condo rental, Eastwood City condominium, condo for rent', '2022-01-22 11:22:22'),
+(129, 'Chan_1640540883', 'x', 0, 'Below Zonal Value Price 1-Bedroom Condo with Balcony and 1 Parking slot', 'Best deal. Rush sale. Ready for occupancy.<br>Big discount for cash buyers.<br>Titled CONDO UNIT AND PARKING<br><br>Zonal value is 5,625,000<br>Selling price is 5,500,000<br><br>Call now! This property is selling below the current BIR zonal value.', '1642530479555', 'For Sale', 5500000, 0, 'Sale', 0, 'Negotiable', 'on', 'below market price, quezon city condo, condo for sale, eastwood city condo, best deal condo in eastwood city', '2022-01-18 18:46:31'),
+(136, 'Chan_1640540883', 'x', 0, 'Fully furnished studio converted to 1-bedroom, 1 T&B, in Eastwood Lafayette 2', 'Rush sale. Affordable 1-bedroom condo in Eastwood City.<br>Selling at below the current market value', '1642666256667', 'For Sale', 3600000, 0, 'Sale', 0, 'Negotiable', 'on', 'Rush sale, Affordable 1-bedroom, Eastwood City. below market value, condo for sale', '2022-01-20 06:21:18'),
+(137, 'c_1636627505', 'x', 0, '1-bedroom condo with balcony and 1 parking for sale in Eastwood Park Residences', '1-bedroom unit with 1 parking<br>Clean title. The property is not mortgaged.<br>Ready for occupancy. Available for move-in anytime.<br>Very good value. The selling price is below the market value.', '1637497250217', 'For Sale', 8000000, 0, 'Sale', 0, 'Negotiable', 'on', 'best deal, rush sale, condo for sale, condominium with parking in eastwood city, good price condo in quezon city', '2022-01-20 06:23:29'),
+(138, 'Chan_1640540883', 'x', 0, 'Fully furnished spacious 1-bedroom condo with balcony', 'Hurry! This unit is rarely available for rent. Nothing to fix. Ready for occupancy. ', '1642671834210', 'For Rent', 30000, 60000, '6 months', 0, 'Rent is inclusive of association dues.<br>With or without post-dated checks', 'on', '1br condo in eastwood city, condo in quezon city, condo leasing, eastwood city condo for rent, one central par', '2022-01-20 06:21:36'),
+(139, 'c_1636627505', 'x', 0, '1-Bedroom With A Superb View, Fully Furnished Condo in Eastwood Park Residences', 'Clean Title. Nothing To Repair. With Rental Income.<br>Hurry! Inquire now to get a chance at this superb offer.', '1637496491296', 'For Sale', 4500000, 0, 'Sale', 0, 'Negotiable', 'on', 'condo for sale, eastwood park residences, eastwood city, property for sale in quezon city', '2022-01-22 12:51:47'),
+(146, 'Chan_1640540883', 'x', 0, 'Best deal ever! Selling at almost half the market price. Private parking near Eastwood Parkview 1 elevator 1 ', 'Clean title. <br>Grab this very rare offer. Selling price is only 650,000. BIR zonal value is already 1,125,000. Best buy. Rush sale.', '1642997949350', 'For Sale', 650000, 0, 'Sale', 0, 'Upfront cash', 'on', 'rush sale, best buy, eastwood mall parking, eastwood city, eastwood parkview 1, basement parking for sale, quezon city eastwood', '2022-02-08 01:51:13'),
+(147, 'Chan_1640540883', 'x', 0, 'Eastwood Parkview 1 basement parking near the elevator Eastwood Mall', 'Monthly contract is OK<br>Monthly payment is OK<br>No security deposit is required.<br>Parking spot is located near the elevator of Eastwood Parkview 1<br>Eastwood Mall Eastwood City Bagumbayan Quezon City<br>Basement 4', '1642997949350', 'For Rent', 4000, 0, 'Sale', 0, 'Monthly payment. No deposit required.', 'on', 'parking for rent, Eastwood Mall, Eastwood City, Bagumbayan, Quezon City, Basement 4', '2022-01-24 04:36:45'),
+(148, 'Chan_1636111563', 'x', 0, 'Rush Sale! Best Offer! Affordable unfurnished 1-Bedroom condo in BCDA Taguig City', 'Now is your chance to own a residential condo in Taguig City.<br>Hurry! Grab this opportunity now.  Get in touch with me. Click on the Get The Advertiser&#39&#59;&#59;s Number below the photo.<br><br>Clean title. Ready for occupancy.', '1643001388180', 'For Sale', 2500000, 0, 'Sale', 0, 'Upfront cash, bank financing, or rent-to-own', 'on', 'bcda taguig, affordable condo for sale, rush sale in taguig city, best offer available, super sale, taguig city condo for sale.', '2022-02-08 01:46:40'),
+(149, 'Chan_1636111563', 'x', 0, 'Unfurnished One Bedroom condo in BCDA Taguig City', 'Contact me for viewing and inquiries. Get my number by clicking on the link below the photo.', '1643001388180', 'For Rent', 10500, 21000, '6 months', 0, 'Monthly payments with post-dated checks.<br>', 'on', 'bcda taguig city, bases conversion development authority, housing project in taguig city, condo for rent in taguig city,1-bedroom condo', '2022-01-24 05:34:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_clients`
+--
+
+CREATE TABLE `b_clients` (
+  `recno` int(11) NOT NULL,
+  `clientcode` varchar(25) DEFAULT NULL,
+  `clientlname` varchar(25) DEFAULT NULL,
+  `clientfname` varchar(255) DEFAULT NULL,
+  `clientemail` varchar(25) DEFAULT NULL,
+  `clientcellno` varchar(25) DEFAULT NULL,
+  `clientremarks` varchar(25) DEFAULT NULL,
+  `clientmsg` text NOT NULL,
+  `agentcode` varchar(255) DEFAULT NULL,
+  `agent_notes` text,
+  `showhide` varchar(25) DEFAULT 'show',
+  `clientstatus` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+
+--
+-- Table structure for table `b_listing`
+--
+
+CREATE TABLE `b_listing` (
+  `recno` int(11) NOT NULL,
+  `listingcode` varchar(60) DEFAULT NULL,
+  `listingdescription` text,
+  `buildingname` varchar(25) DEFAULT NULL,
+  `propaddress` varchar(255) DEFAULT NULL,
+  `proptypecode` varchar(25) DEFAULT NULL,
+  `propclasscode` varchar(25) DEFAULT NULL,
+  `loccitycode` varchar(25) DEFAULT NULL,
+  `usercode` varchar(25) DEFAULT NULL,
+  `listingkeys` varchar(25) DEFAULT NULL,
+  `listingtag` varchar(25) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `b_listing`
+--
+
+INSERT INTO `b_listing` (`recno`, `listingcode`, `listingdescription`, `buildingname`, `propaddress`, `proptypecode`, `propclasscode`, `loccitycode`, `usercode`, `listingkeys`, `listingtag`, `dateinserted`) VALUES
+(1, '11V OE', 'Unfurnished 25sqm studio type condo with 1 toilet & bathroom located in One Eastwood. With AC, water heater, cooker, range hood, built-in cabinets, and provision for washing machine. With windows overlooking Eastwood Ave.<br><br>Building Amenities/Facilities<br>Landscaped gardens<br>Lap pool with pool seat jets<br>Paved sunbathing lounge and seating area<br>Bar with indoor and outdoor lounge<br>Kiddie pool/Wading pool<br>Playground<br>Playroom<br>Reflexology path and meditation garden<br>Yoga-Pilates room<br>Outdoor chess<br>Game rooms<br>Male and female changing/shower rooms<br>Function rooms<br>Sky garden at 8th, 18th and 28th floors<br>Entrance lobby with reception counter and lounge area<br>6 high-speed elevators<br>24/7 security<br>Centralized mail room<br>Closed-circuit TV (CCTV) monitoring for selected areas<br>', 'One Eastwood', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637467429285', NULL, '2021-11-21 04:04:06'),
+(2, '11W OE', 'Unfurnished 25sqm studio type condo with 1 toilet & bathroom located in One Eastwood. With AC, water heater, cooker, range hood, built-in cabinets, and provision for washing machine. With windows overlooking Eastwood Ave.<br><br>Building Amenities/Facilities<br>Landscaped gardens<br>Lap pool with pool seat jets<br>Paved sunbathing lounge and seating area<br>Bar with indoor and outdoor lounge<br>Kiddie pool/Wading pool<br>Playground<br>Playroom<br>Reflexology path and meditation garden<br>Yoga-Pilates room<br>Outdoor chess<br>Game rooms<br>Male and female changing/shower rooms<br>Function rooms<br>Sky garden at 8th, 18th and 28th floors<br>Entrance lobby with reception counter and lounge area<br>6 high-speed elevators<br>24/7 security<br>Centralized mail room<br>Closed-circuit TV (CCTV) monitoring for selected areas<br>', 'One Eastwood', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637472519836', NULL, '2021-11-21 05:28:55'),
+(3, '45T OE', 'Fully furnished 40sqm 1-bedroom condo located in One Eastwood. With 2 AC, 1 toilet & bathroom with water heater, 3-seater sofa, TV, 4-seater dining set, double-size bed, built-in cabinets, study area, dresser, fully-equipped kitchen, and provision for washing machine.<br> <br>Building Amenities/Facilities<br>Landscaped gardens<br>Lap pool with pool seat jets<br>Paved sunbathing lounge and seating area<br>Bar with indoor and outdoor lounge<br>Kiddie pool/Wading pool<br>Playground<br>Playroom<br>Reflexology path and meditation garden<br>Yoga-Pilates room<br>Outdoor chess<br>Game rooms<br>Male and female changing/shower rooms<br>Function rooms<br>Sky garden at 8th, 18th and 28th floors<br>Entrance lobby with reception counter and lounge area<br>6 high-speed elevators<br>24/7 security<br>Centralized mail room<br>Closed-circuit TV (CCTV) monitoring for selected areas<br>', 'One Eastwood', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637473991732', NULL, '2021-12-19 05:53:27'),
+(11, '31B ELG1', '', 'Eastwood Legrand 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025749', NULL, '2021-11-21 10:53:46'),
+(21, '4A ELG3', 'Unfurnished 30sqm 1studio type condo located in Eastwood Legrand 3. With 1 toilet & bathroom.<br> <br>Building Amenities/Facilities<br>Lap pool and kiddie pool with paved deck<br>Children&#39;s playground<br>Jogging path<br>Landscaped garden<br>Fitness gym<br>Daycare center<br>Function rooms<br>Game room<br>Culinary station<br>4 high-speed elevators<br>Spacious lobby<br>24/7 security<br>CCTV in select areas', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637475043684', NULL, '2021-11-21 06:10:59'),
+(22, '7N ELG3', 'Unfurnished 30sqm 1studio type condo located in Eastwood Legrand 3. With 1 toilet & bathroom.<br> <br>Building Amenities/Facilities<br>Lap pool and kiddie pool with paved deck<br>Children&#39;s playground<br>Jogging path<br>Landscaped garden<br>Fitness gym<br>Daycare center<br>Function rooms<br>Game room<br>Culinary station<br>4 high-speed elevators<br>Spacious lobby<br>24/7 security<br>CCTV in select areas', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637475043683', NULL, '2021-11-21 06:10:59'),
+(23, '6B ELG3', 'Unfurnished 30sqm studio type condo located in Eastwood Legrand 3. With 1 toilet & bathroom with hot water, 1 AC, 3-seater sofa, TV, double-size bed, 4-seater dining set, fully-equipped kitchen, and washing machine.<br> <br>Building Amenities/Facilities<br>Lap pool and kiddie pool with paved deck<br>Children&#39;s playground<br>Jogging path<br>Landscaped garden<br>Fitness gym<br>Daycare center<br>Function rooms<br>Game room<br>Culinary station<br>4 high-speed elevators<br>Spacious lobby<br>24/7 security<br>CCTV in select areas', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637496112477', NULL, '2021-11-21 12:01:53'),
+(24, '12A ELG3', 'Unfurnished 39sqm one-bedroom condo located in Eastwood Legrand 3, Eastwood City, Quezon City. With 2-burner electric cooker and range hood. Bedroom and living/dining areas with 1 aircon each. 1 toilet and bathroom with provision for hot shower', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637475043686', NULL, '2021-11-21 06:10:59'),
+(25, '12O ELG3', 'Fully furnished 30sqm studio type condo located in Eastwood Legrand 3. With 1 toilet & bathroom with hot water, 1 AC, 3-seater sofa, TV, double-size bed, 4-seater dining set, fully-equipped kitchen, and washing machine.<br> <br>Building Amenities/Facilities<br>Lap pool and kiddie pool with paved deck<br>Children&#39;s playground<br>Jogging path<br>Landscaped garden<br>Fitness gym<br>Daycare center<br>Function rooms<br>Game room<br>Culinary station<br>4 high-speed elevators<br>Spacious lobby<br>24/7 security<br>CCTV in select areas', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637476021581', NULL, '2021-11-21 06:27:17'),
+(26, '12N ELG3', 'Fully furnished 30sqm studio type condo located in Eastwood Legrand 3. With 1 toilet & bathroom with hot water, 1 AC, 3-seater sofa, TV, double-size bed, 4-seater dining set, fully-equipped kitchen, and washing machine.<br> <br>Building Amenities/Facilities<br>Lap pool and kiddie pool with paved deck<br>Children&#39;s playground<br>Jogging path<br>Landscaped garden<br>Fitness gym<br>Daycare center<br>Function rooms<br>Game room<br>Culinary station<br>4 high-speed elevators<br>Spacious lobby<br>24/7 security<br>CCTV in select areas', 'Eastwood Legrand 3', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637488511527', NULL, '2021-11-21 09:55:12'),
+(31, '24B PV2', 'This fully furnished 38sqm studio-type condo converted to 1-bedroom is ideal for 1 to 3 occupants. Located on the mid zone of Eastwood Parkview 2 with windows facing north-west.<br><br>Building amenities/facilities:<br>Adult and kiddie swimming pool with pool deck<br>Fitness gym<br>Jogging path<br>Garden<br>Meeting rooms<br>Children&#39;s outdoor play area<br>Sauna<br>4 high-speed elevators<br>24/7 security<br>CCTV in select areas', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637492663985', NULL, '2021-11-21 11:04:25'),
+(32, '33G PV2', 'This unfurnished 29sqm studio-type condo unit is ideal for 1 to 3 occupants. Located on the high zone of Eastwood Parkview 2 with windows facing north-west.<br><br>Building amenities/facilities:<br>Adult and kiddie swimming pool with pool deck<br>Fitness gym<br>Jogging path<br>Garden<br>Meeting rooms<br>Children&#39;s outdoor play area<br>Sauna<br>4 high-speed elevators<br>24/7 security<br>CCTV in select areas', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025730', NULL, '2021-11-21 10:53:46'),
+(33, '5E PV2', 'An unfurnished 29sqm studio-type condo unit is ideal for 1 to 3 occupants with a high ceiling and loft sleeping area. Located on the amenity level of Eastwood Parkview 2.<br><br>Building amenities/facilities:<br>Adult and kiddie swimming pool with pool deck<br>Fitness gym<br>Jogging path<br>Garden<br>Meeting rooms<br>Children&#39;s outdoor play area<br>Sauna<br>4 high-speed elevators<br>24/7 security<br>CCTV in select areas', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025750', NULL, '2021-11-21 10:53:50'),
+(34, '31P PV2', '', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025746', NULL, '2021-11-21 10:53:46'),
+(35, '36J PV2', 'A semi-furnished 81sqm 2-bedroom condo with<br>* Spacious living and dining areas with built-in shelves and cabinets, and aircon<br>* Master&#39;s bedroom with aircon, cabinet, dresser, and ensuite toilet & bathroom. <br>* Second bedroom with aircon and cabinet. <br>* Common toilet & bathroom. <br>* Kitchen with overhead and under-counter cabinets<br>* Utility/maid&#39;s room<br>* Extra toilet', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637492025742', NULL, '2021-11-21 10:53:46'),
+(36, '36L PV2', '', 'Eastwood Parkview 2', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025743', NULL, '2021-11-21 10:53:46'),
+(41, '11J EE1', 'Unfurnished and upgraded 36.5sqm studio type condo in Eastwood Excelsior.<br><br>With folding partition to make the bedroom private and separate from the living and dining areas.<br><br>1 toilet and bathroom with provision for hot shower, decent kitchen space with provision for washing machine, and a living and dining areas with built-in shelves and walled fountain.', 'Eastwood Excelsior 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025758', NULL, '2021-11-21 10:57:58'),
+(42, '20J EE1', '', 'Eastwood Excelsior 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025759', NULL, '2021-11-21 10:57:58'),
+(51, '8A OR1', '', 'One Orchard Road 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637492025559', NULL, '2021-11-21 10:57:58'),
+(52, '26H Orchard 3', 'temporary', 'One Orchard Road 3', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143123', NULL, '2021-11-21 11:45:44'),
+(53, '17B Orchard 3', 'temporary', 'One Orchard Road 3', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143149', NULL, '2021-11-21 11:45:49'),
+(54, '18F Orchard 3', 'temporary', 'One Orchard Road 3', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143174', NULL, '2021-11-21 11:45:44'),
+(55, '16B Orchard 1', 'A fully furnished 57sqm 1-bedroom condo with 1 toilet & bathroom, spacious living and dining areas, spacious kitchen, and a utility room. This unit is located in One Orchard Road.<br><br>* The bedroom has an AC, a big bed, and cabinets.<br>* The living and dining areas has a split-type AC, 2 sofa, center table, TV, 4-seater dining table with 4 chairs, and divider shelves.<br>* The kitchen is well-equipped with ref, electric cooker, microwave oven, rice cooker, and cooking and dining utensils<br>* The utility room has a washing machine and shelving.<br>', 'One Orchard Road 1', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143175', NULL, '2021-11-21 11:45:44'),
+(56, '12G Orchard 2', 'temporary', 'One Orchard Road 2', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143172', NULL, '2021-11-21 11:45:44'),
+(57, '28N Orchard 3', 'Unfurnished 36.5sqm studio type condominium unit converted to 1-bedroom unit. This unit is located in One Orchard Road Tower 3.<br><br>With 1 toilet & bathroom, kitchen with provision for washing machine, and bedroom with provision for window-type aircon. With spacious living and dining areas.', 'One Orchard Road 3', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495143173', NULL, '2021-11-21 11:45:44'),
+(61, '28H EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496966718', NULL, '2021-11-21 12:16:07'),
+(62, '9H EPR', '67sqm 1-bedroom Condo With Balcony. 1 Common Toilet And Bathroom, Utility/maid&#39&#59;&#59;s Room, Extra Toilet, Kitchen, Foyer, And Spacious Living And Dining Areas.<br><br>With 2 Aircon Included<br>With Wide Floor-to-ceiling Windows Overlooking The Mountains.', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637497250217', NULL, '2021-11-21 12:20:50'),
+(63, '18K EPR', 'Fully furnished 36sqm fully airconditioned 1-bedroom condominium unit. <br>* Bedroom with big bed and cabinet<br>* Toilet and bathroom with hot shower<br>* Kitchen with ref, cooker, microwave oven, rice cooker, water dispenser, and cooking and dining utensils<br>* Living area with TV, sofa, and center table<br>* Dininag area with 4-seater dining table with 4 chairs', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496491296', NULL, '2021-11-21 12:08:12'),
+(64, '6E EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492000', NULL, '2021-11-21 12:00:00'),
+(65, '6F EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492001', NULL, '2021-11-21 12:00:01'),
+(66, '6K EPR', 'Fully furnished 36sqm 1-bedroom condo in Eastwood Park Residences. Fully airconditioned and fully equipped with basic necessities.', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492002', NULL, '2021-11-21 12:00:02'),
+(67, '7H EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492003', NULL, '2021-11-21 12:00:03'),
+(68, '16F EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492004', NULL, '2021-11-21 12:00:04'),
+(69, '18F EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492005', NULL, '2021-11-21 12:00:05'),
+(70, '25J EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492006', NULL, '2021-11-21 12:00:06'),
+(71, '26I EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492007', NULL, '2021-11-21 12:00:07'),
+(72, '28I EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492008', NULL, '2021-11-21 12:00:08'),
+(73, '11A EPR', 'Fully furnished 89.5sqm', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637496492009', NULL, '2021-11-21 12:00:09'),
+(74, '12E EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492010', NULL, '2021-11-21 12:00:10'),
+(75, '25C EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492011', NULL, '2021-11-21 12:00:11'),
+(76, '27EF EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 04', 'Metro Manila - QC', 'c_1636627505', '1637496492012', NULL, '2021-11-21 12:00:12'),
+(77, '22K EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492014', NULL, '2021-11-21 12:00:14'),
+(78, '24H EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637496492015', NULL, '2021-11-21 12:00:15'),
+(79, '24L EPR', 'temporary', 'Eastwood Park Residences', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637496492016', NULL, '2021-11-21 12:00:16'),
+(101, '16L OCP', 'Fully furnished 94sqm 2-bedroom condo unit with balcony located on top of Eastwood Mall in Quezon City.<br><br>* Master&#39;s bedroom with aircon, big bed, cabinet, and ensuite toilet & bathroom with hot shower.<br>* 2nd bedroom with aircon, bunkbed, and cabinet.<br>* 2nd toilet & bathroom with hot shower.<br>* Spacious living and dining areas with aircon, sofa, center table, TV, 6-seater dining table with 6 chairs, and cabinets for displays and storage spaces.<br>* kitchen with ref, cooker, oven, rice cooker, microwave oven, water dispenser, and cooking and dining utensils.<br>* Utility room with washing machine.<br>* Extra toilet<br>* Balcony', 'One Central Park', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637496704763', NULL, '2021-11-21 12:11:59'),
+(102, '27K OCP', 'temporary', 'One Central Park', 'Eastwood City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'c_1636627505', '1637495249926', NULL, '2021-11-21 11:47:30'),
+(103, '19I OCP', 'temporary', 'One Central Park', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637495249927', NULL, '2021-11-21 11:47:37'),
+(104, '30L OCP', 'Fully furnished 94sqm 2-bedroom condo unit with balcony located on top of Eastwood Mall in Quezon City.<br><br>* Master&#39;s bedroom with aircon, big bed, cabinet, and ensuite toilet & bathroom with hot shower.<br>* 2nd bedroom with aircon, big bed, and cabinet.<br>* 2nd toilet & bathroom with hot shower.<br>* Spacious living and dining areas with aircon, sofa, center table, TV, 4-seater dining table with 4 chairs, and cabinets for displays and storage spaces.<br>* kitchen with ref, cooker, rice cooker, microwave oven, and cooking and dining utensils.<br>* Utility room can be used as maid&#39;s room.<br>* Extra toilet<br>* Balcony', 'One Central Park', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637495249908', NULL, '2021-11-21 11:47:08'),
+(105, '32GH OCP', 'Fully furnished 129sqm 2-bedroom condo unit with 2 balcony located on top of Eastwood Mall in Quezon City.<br><br>* Master&#39;s bedroom with aircon, big bed, cabinet, lounge area with sofa, balcony, ensuite toilet & bathroom with hot shower, and wide floor-to-ceiling windows.<br>* 2nd bedroom with aircon, big bed, cabinet, lounge area with sofa, balcony, and ensuite toilet & bathroom with hot shower.<br>* Spacious living and dining areas with aircon, sofa, center table, TV, 6-seater dining table with 6 chairs, and a bar.<br>* Spacious kitchen with a ref, cooker, oven, rice cooker, microwave oven, cooking and dining utensils, and a service door to the hallway.<br>* Utility room with washing machine, electric dryer, and cabinets.<br>* Powder room', 'One Central Park', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637495249928', NULL, '2021-11-21 11:47:28'),
+(111, '36C PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138714', NULL, '2021-11-21 11:27:14'),
+(112, '39F PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138710', NULL, '2021-11-21 11:27:10'),
+(113, '38J PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138712', NULL, '2021-11-21 11:27:12'),
+(114, '39I PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138711', NULL, '2021-11-21 11:27:11'),
+(115, '34E PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138708', NULL, '2021-11-21 11:27:08'),
+(116, '18O PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138704', NULL, '2021-11-21 11:27:04'),
+(117, '33P PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138709', NULL, '2021-11-21 11:27:09'),
+(118, '33F PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138707', NULL, '2021-11-21 11:27:07'),
+(119, '32E PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138705', NULL, '2021-11-21 11:27:05'),
+(120, '15K PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138702', NULL, '2021-11-21 11:27:02'),
+(121, '9J PV1', 'temporary', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637495249927', NULL, '2021-12-20 00:00:00'),
+(122, '9K PV1', 'temporary', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637495249927', NULL, '2021-12-21 00:00:00'),
+(123, '10F PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138569', NULL, '2021-11-21 11:28:59'),
+(124, '21I PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138706', NULL, '2021-11-21 11:27:06'),
+(125, '10K PV1', 'Fully furnished 81sqm 2-bedroom with 2 bathroom condo located in Eastwood Parkview 1. With 3 AC (1 for each bedroom and 1 in the living/dining area), 2 water heaters (1 for each bathroom), fully-equipped kitchen, utility/maid&#39;s room with own toilet. The master&#39;s bedroom has 2 single-size beds that can be move together to convert to king-size bed. The second room has double-size bunk bed. The living room has sofa-bed, center table, and TV. Dining room has a 6-seater dining table with 6 chairs. <br><br>Building amenities/facilities:<br>Adult and kiddie swimming pool with pool deck<br>Fitness gym<br>Jogging path<br>Garden<br>Meeting rooms<br>Children&#39;s outdoor play area<br>Sauna<br>4 high-speed elevators<br>24/7 security<br>CCTV in select areas', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'c_1636627505', '1637494138568', NULL, '2021-11-21 11:28:59'),
+(126, '14B PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138700', NULL, '2021-11-21 11:27:00'),
+(127, '14D PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138701', NULL, '2021-11-21 11:27:01'),
+(128, '15P PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138701', NULL, '2021-11-21 11:27:01'),
+(129, '21I PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138702', NULL, '2021-11-21 11:27:02'),
+(130, '16H PV1', '', 'Eastwood Parkview 1', 'Eastwood City', 'Condo', 'Condo 03', 'Metro Manila - QC', 'c_1636627505', '1637494138703', NULL, '2021-11-21 11:27:03'),
+(201, '14E M2', 'Unfurnished 22.5sqm unfurnished studio type condo with aircon. Toilet and bathroom with provision for water heater. Kitchen with electric cooker, range hood, built-in table/nook, and built-in overhead and under-counter cabinets.<br>', 'Morgan Suites 2', 'Mckinley Hill', 'Condo', 'Condo 01', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1637493691004', NULL, '2021-11-21 11:21:31'),
+(202, '1B FW', 'Fully furnished 50sqm 1-bedroom with 1 toilet and bathroom with a balcony. Located on the ground level of Florence Way.', 'Florence Way', 'Mckinley Hill', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1639913240358', NULL, '2021-12-19 11:27:21'),
+(203, '9E North OUR', '36.5sqm fully furnished 1-bedroom condo in One Uptown Residence, Fort Bonifacio, Taguig City.<br><br>With 2 aircon, smart TV, no-frost ref, double burner electric stove, range hood, microwave oven, rice cooker, washing machine with dryer, big bed, study table with chair, 3-seater sofa, center table, 2-seater dining table with 2 chairs, and complete cooking and dining utensils.', 'One Uptown Residence', 'Bonifacio Global City', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1637495558012', NULL, '2021-11-21 11:52:38'),
+(204, '8E Caruso', '40sqm spacious studio type condominium with balcony and1 toilet & bathroom. With aircon, electric cooker, range hood, clothes cabinet, and kitchen overhead and under-counter cabinets', 'Venice Caruso', 'Mckinley Hill', 'Condo', 'Condo 01', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1637495743777', NULL, '2021-11-21 11:55:44'),
+(205, '38F Lincoln Procenium', 'Fully furnished 33sqm studio type condo located on the high zone of Lincoln Proscenium.', 'Lincoln Proscenium', 'Rockwell Center', 'Condo', 'Condo 01', 'Metro Manila - Makati Cit', 'Chan_1636111563', '1637495900763', NULL, '2021-11-21 11:58:21'),
+(206, '902E OR', 'Fully furnished 57sqm 1-bedroom loft condominium unit located in One Rockwell East Tower. With 2 AC, water heater, washing machine, TV, ref, electric cooker, range hood, big bed, 3-seater sofa, 4-seater dining table with 4 chairs, 2 benches, clothes cabinet, shoe cabinet, and kitchen overhead and under-counter cabinets.', 'One Rockwell East', 'Rockwell Center', 'Condo', 'Condo 02', 'Metro Manila - Makati Cit', 'Chan_1636111563', '1639913281221', NULL, '2021-12-19 11:28:01'),
+(207, 'Yanoi 214', '50sqm 2-bedroom condo with 1 toilet & bathroom, and a wide balcony facing the amenity area. The kitchen has overhead and under-counter cabinets.<br>', 'Yanoi', 'Royal Palm Residences', 'Condo', 'Condo 03', 'Metro Manila  - Taguig Ci', 'Chan_1636111563', '1637495310437', NULL, '2021-11-21 11:48:30'),
+(221, 'Ayala Height H&L', 'LA:480sq.m<br>FA:820sq.m<br>5 bedroom with T&B<br>4 car garage<br>swimming pool<br>With maid&#39&#59;s and driver&#39&#59;s room <br>Pool and automated sound system<br>Overlooking view', '', 'Ayala Heights', 'House', 'House 04', 'Metro Manila - QC', 'Jaramilla_1640536475', '1640102588349', NULL, '2021-12-21 16:03:09'),
+(222, 'BF Homes QC H&L', 'LA:211.75sq.m<br>FA:203.86sq.m<br>2 storey<br>4 berooms with T&B<br>Entertainment area<br>Storage<br>Maid&#39&#59;s quarter', '', 'BF Homes Quezon City', 'House', 'House 02', 'Metro Manila - QC', 'Jaramilla_1640536475', '1640102727020', NULL, '2021-12-21 16:05:27'),
+(223, 'North Fairview Lot', 'Lot only 300sq.m<br>Walking distance to Commonwealth Ave.<br>', '', 'Northfairview Park Subd', 'Lot', 'Lot 02', 'Metro Manila - QC', 'Jaramilla_1640536475', '1640102874814', NULL, '2021-12-21 16:07:55'),
+(224, 'Parkside Villa 3br', 'UNIT AT PARKSIDE VILLAS NEW PORT CITY<br>62sq.m<br>3 BR with parking<br>Fully furnished<br>9th Flr.<br>Cluster E', 'Parkside Villas', 'Newport City', 'Condo', 'Condo 04', 'Metro Manila - Pasay', 'Jaramilla_1640536475', '1640536092144', NULL, '2021-12-26 16:28:13'),
+(225, 'Farm in Alfonso Cavite', '1 hectare farm in Alfonso Cavite.<br>Cool weather. Good for vegetable farming.', '', 'Alfonso', 'Farm', 'Farm 05', 'Cavite', 'Chan_1640540883', '1640541145362', NULL, '2021-12-26 17:52:26'),
+(226, 'Titled Farm in Alfonso Ca', 'Lot size: 5 hectares<br>Ideal for fruit trees, vegetable farming, or livestock.', '', 'Alfonso Cavite', 'Farm', 'Farm 05', 'Cavite', 'Chan_1640540883', '1640541574881', NULL, '2021-12-26 17:59:37'),
+(228, 'Dy 30-175', '175.84 sqm located on the 30th Floor of IBM Plaza in Eastwood City.<br><br>IBM Plaza is a 30-storey commercial tower for offices and headquarters. This building is PEZA accredited and is located in an economic zone for IT-driven companies and businesses<br><br>Association Dues: IBM Plaza PHP 141/ per sqm<br><br>Eastwood City is Megaworld&#39;s first-ever and most successful integrated township project that offers complete facilities, amenities, and establishments for living, working, playing, and shopping in the Philippines. Eastwood is also known as the Philippines&#39; first Cyberpark, home to the largest business process outsourcing (BPO) locators. The Eastwood City Cyberpark is topped with business centers that house IT companies putting the country on the global map of information technology, it is also listed as an approved IT center by the Philippine Economic Zone Authority (PEZA).', 'IBM Plaza', 'Eastwood City', 'Office', 'Office 02', 'Metro Manila - QC', 'Chan_1640540883', '1641572173691', NULL, '2022-01-07 16:16:14'),
+(229, 'Dy 30-100', '100.08 sqm located on the 30th Floor of IBM Plaza in Eastwood City.<br><br>IBM Plaza is a 30-storey commercial tower for offices and headquarters. This building is PEZA accredited and is located in an economic zone for IT-driven companies and businesses<br><br>Association Dues: IBM Plaza PHP 141/ per sqm<br><br>Eastwood City is Megaworld&#39;s first-ever and most successful integrated township project that offers complete facilities, amenities, and establishments for living, working, playing, and shopping in the Philippines. Eastwood is also known as the Philippines&#39; first Cyberpark, home to the largest business process outsourcing (BPO) locators. The Eastwood City Cyberpark is topped with business centers that house IT companies putting the country on the global map of information technology, it is also listed as an approved IT center by the Philippine Economic Zone Authority (PEZA).', 'IBM Plaza', 'Eastwood City', 'Office', 'Office 02', 'Metro Manila - QC', 'Chan_1640540883', '1641572838684', NULL, '2022-01-07 16:27:19'),
+(230, 'Dy 31-265', '265 sqm located on the 31st Floor of IBM Plaza in Eastwood City.<br><br>IBM Plaza is a 30-storey commercial tower for offices and headquarters. This building is PEZA accredited and is located in an economic zone for IT-driven companies and businesses<br><br>Association Dues: IBM Plaza PHP 141/ per sqm<br><br>Eastwood City is Megaworld&#39;s first-ever and most successful integrated township project that offers complete facilities, amenities, and establishments for living, working, playing, and shopping in the Philippines. Eastwood is also known as the Philippines&#39; first Cyberpark, home to the largest business process outsourcing (BPO) locators. The Eastwood City Cyberpark is topped with business centers that house IT companies putting the country on the global map of information technology, it is also listed as an approved IT center by the Philippine Economic Zone Authority (PEZA).', 'IBM Plaza', 'Eastwood City', 'Office', 'Office 02', 'Metro Manila - QC', 'Chan_1640540883', '1641572929205', NULL, '2022-01-07 16:28:50'),
+(231, 'Dy 30-232', '232.88 sqm located on the 30th Floor of IBM Plaza in Eastwood City.<br><br>IBM Plaza is a 30-storey commercial tower for offices and headquarters. This building is PEZA accredited and is located in an economic zone for IT-driven companies and businesses<br><br>Association Dues: IBM Plaza PHP 141/ per sqm<br><br>Eastwood City is Megaworld&#39;s first-ever and most successful integrated township project that offers complete facilities, amenities, and establishments for living, working, playing, and shopping in the Philippines. Eastwood is also known as the Philippines&#39; first Cyberpark, home to the largest business process outsourcing (BPO) locators. The Eastwood City Cyberpark is topped with business centers that house IT companies putting the country on the global map of information technology, it is also listed as an approved IT center by the Philippine Economic Zone Authority (PEZA).', 'IBM Plaza', 'Eastwood City', 'Office', 'Office 02', 'Metro Manila - QC', 'Chan_1640540883', '1641573000305', NULL, '2022-01-07 16:30:01'),
+(232, 'Dy 27-750', '501.20 sqm & 248.80 sqm located on the 27th Floor of IBM Plaza in Eastwood City.<br><br>IBM Plaza is a 30-storey commercial tower for offices and headquarters. This building is PEZA accredited and is located in an economic zone for IT-driven companies and businesses<br><br>Association Dues: IBM Plaza PHP 141/ per sqm<br><br>Eastwood City is Megaworld&#39;s first-ever and most successful integrated township project that offers complete facilities, amenities, and establishments for living, working, playing, and shopping in the Philippines. Eastwood is also known as the Philippines&#39; first Cyberpark, home to the largest business process outsourcing (BPO) locators. The Eastwood City Cyberpark is topped with business centers that house IT companies putting the country on the global map of information technology, it is also listed as an approved IT center by the Philippine Economic Zone Authority (PEZA).', 'IBM Plaza', 'Eastwood City', 'Office', 'Office 02', 'Metro Manila - QC', 'Chan_1640540883', '1641573121297', NULL, '2022-01-07 16:32:01'),
+(238, 'OURS0 7O', 'Fully furnished 33sqm 1-bedroom condo in One Uptown Residence. Complete with all the basic necessities. Comfortable and cozy bachelor&#39&#59;s pad located in the most sought-after address in BGC.<br><br>Located in 8th Avenue Corner 36th St, across the street from Grand Hyatt Hotel.', 'One Uptown Residence', 'Bonifacio Global City, Taguig City', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1642525350430', NULL, '2022-01-18 17:02:29'),
+(239, 'OURS 9N', 'Fully furnished 33sqm 1-bedroom condo in One Uptown Residence. With windows overlooking the swimming pool', 'One Uptown Residence', 'Bonifacio Global City Taguig City', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1642527465903', NULL, '2022-01-18 17:37:44'),
+(240, 'OURS 9O', 'Fully furnished 33sqm one-bedroom condo in One Uptown Residence, Bonifacio Global City, Taguig City<br><br>With 2 AC, washing machine, TV, water heater, ref, cooker, range hood, bed, sofa, center table, dining table with chairs, and all the basic furnishings.', 'One Uptown Residence', 'Bonifacio Global City (BGC) Taguig City', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1642528122013', NULL, '2022-01-18 17:48:40'),
+(241, 'OURS 9Q', '33sqm fully furnished condo with 1 parking<br>Ready for occupancy. Nothing to repair.<br><br>Located in One Uptown Residence, 8th avenue corner 36th street, Bonifacio Global City, Taguig City. <br><br>Excellent location. Within short walking distance to Uptown Mall, Grand Hyatt Hotel, International schools, St Luke&#39&#59;s Hospital, MC Home Depot, S&R Membership Shopping, Toyota Dealership, and Service Center. A few minutes away from Makati and Ortigas Business Centers', 'One Uptown Residence', 'BGC Bonifacio Global City Taguig City', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1642528753042', NULL, '2022-01-18 17:59:11'),
+(242, '35F PDV', '50sqm 1-bedroom condo in Grand Eastwood Palazzo, Eastwood City, Bagumbayan, Quezon City<br><br>Master&#39&#59;&#59;s bedroom ensuite toilet & bathroom<br>Utility/maid&#39&#59;&#59;s room<br>Extra toilet<br>Furnished with good-quality antique furniture.', 'Eastwood Palazzo', 'Eastwood City Bagumbayan Quezon City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'Chan_1640540883', '1642530479555', NULL, '2022-01-18 18:27:58'),
+(246, '6C TEL2', 'Condo in The Eastwood Lafayette 2, Eastwood City, Bagumbayan, Quezon City<br>Fully furnished 36sqm Studio type with partition for bedroom<br>one bathroom<br>', 'The Eastwood Lafayette 2', 'Eastwood City, Bagumbayan, Quezon City', 'Condo', 'Condo 02', 'Metro Manila - QC', 'Chan_1640540883', '1642666256667', NULL, '2022-01-20 08:10:56'),
+(248, '18E OCP', 'Fully furnished 1-bedroom with balcony. 1 common toilet and bathroom, utility/maid&#39&#59;s room, extra toilet, kitchen, foyer, and very spacious living and dining areas. With floor-to-ceiling wide windows overlooking Eastwood Open Park, lagoon, and the musical fountain.', 'One Central Park', 'Eastwood City Libis', 'Condo', 'Condo 02', 'Metro Manila - QC', 'Chan_1640540883', '1642671834210', NULL, '2022-01-20 09:43:55'),
+(250, 'B4 N25 PV1', 'Private parking located at the basement 4 of Eastwood Mall, Eastwood City, Quezon City.<br>Near the elevator of Eastwood Parkview 1', 'Eastwood Mall Eastwood Pa', 'Eastwood City', 'Condo', 'Condo 01', 'Metro Manila - QC', 'Chan_1640540883', '1642997949350', NULL, '2022-01-24 04:19:10'),
+(251, 'Francis BCDA', '36sqm 1-bedroom condo with 1 toilet & bathroom on the 3rd floor of building MB-6, BCDA Pamayanang Diego Silang, Taguig City<br><br>Very convenient location. Near SMDC Grace, Acacia Estates, Cypress Towers, C-5, Levi Mariano Ave, SM Hypermart, All Day Supermarket, All Home Department Store.<br><br>5-10 minutes away from BGC and Mckinley Hill.<br><br>15 - 30 minutes away from the airport, Newport City, Makati, and Ortigas business districts', 'MB-6', 'BCDA Pamayanang Diego Silang', 'Condo', 'Condo 02', 'Metro Manila - Taguig Cit', 'Chan_1636111563', '1643001388180', NULL, '2022-01-24 05:16:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `c_expiration_checker`
+--
+
+CREATE TABLE `c_expiration_checker` (
+  `recno` int(25) NOT NULL,
+  `usercode` varchar(25) NOT NULL,
+  `A_starting` date DEFAULT NULL,
+  `B_ending` date DEFAULT NULL,
+  `status` varchar(25) NOT NULL DEFAULT 'ongoing',
+  `membertype_or_star` varchar(25) DEFAULT NULL,
+  `thisvalue` varchar(25) DEFAULT NULL,
+  `target_ads_id` int(25) DEFAULT '0',
+  `dateinserted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+
+--
+-- Table structure for table `c_news`
+--
+
+CREATE TABLE `c_news` (
+  `recno` int(25) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text NOT NULL,
+  `dateinserted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `c_news`
+--
+
+INSERT INTO `c_news` (`recno`, `title`, `description`, `dateinserted`) VALUES
+(1, '<font color=&#39;blue&#39;>Welcome Note to Members</font>', '<br>Hello and welcome to <b><font color=&#39;blue&#39;>Philippine Real Estate Market</font></b>!<br><br>As one of the pioneering members, you are privileged to receive the <b><font color=&#39;blue&#39;>free-for-life member account</font></b>, and you will be allowed to <b><font color=&#39;blue&#39;>post an unlimited number of ads</b></font>. <br><br>When a client wants to contact you thru your ads, their inquiry will be forwarded to your email, and your name and mobile number will be shown to the client. So make sure to provide the correct email address and mobile number. Inquiries cannot get to you without your correct contact information<br><br>Start enjoying your free member account. Start building your property listing and create ads now. Here are the steps on how to start.<br><br>1. Click on <b><font color=&#39;blue&#39;>Profile</font></b> to update your personal information, password, and email address.<br>2. Click on <b><font color=&#39;blue&#39;>Listings</font></b> to manage your listings.<br>3. Click on <b><font color=&#39;blue&#39;>Ads</font></b> to manage your ads.<br>4. Click on <b><font color=&#39;blue&#39;>Inquiries</font></b> to manage your inquiries.<br><br>You may send me an email at inquire@philippinerealestatemarket.com should you need help navigating thru the site.<br><br>', '2022-01-05 15:37:35'),
+(2, '<font color=\'blue\'>Creating Your Listing</font>', 'Before you can start posting your ads, you first have to create your Listing. Think of Listings as the inventory of all the rental, sale, foreclosed, rent-to-own, and pre-selling properties you want to offer.<br><br>\r\n\r\nDo<br>\r\n&#9989; Create a relevant <i>Listing Code</i>. This is the reference code that you will use to easily manage your properties. This is not visible to clients.<br>\r\n&#9989; Be as detailed as possible when filling up the <i>Description</i>. This will describe your property to clients.<br>&#9989; Upload at least one photo of the property you are offering.<br><br>\r\n\r\nDon\'t<br>\r\n&#10062; Do not create a duplicate listing. You don\'t need that.<br>\r\n&#10062; Do not include \"for rent\" or \"for sale\" in the description. You don\'t need that.<br>\r\n&#10062; Website addresses, Facebook accounts and YouTube channels are prohibited. Your account may be suspended if you include these information.', '2022-01-05 15:37:35'),
+(3, '<font color=\'blue\'>Creating Your Ads</font>', 'After you have created your Listing, you are now ready to create your ads. The Ads are what gets published in the Property Catalog. Clients will select from the Ads.<br><br>\r\n\r\nDo<br>\r\n&#9989; Create multiple unique Ads on a single Listing as needed. One Ads could be \"for rent\". Another Ads could be \"for sale\".<br>&#9989; Select the appropriate <i>Listing Type</i>. <br>&#9989; Select the <i>Listing Code</i> that you  previously created in the Listing.  <br>\r\n&#9989; Catch the attention of clients with a short but interesting Ads Title. <br>\r\n&#9989; Write a good sales write-up in the Ads Description.<br>\r\n&#9989; Write words relevant to your ads in the Tags. Clients will use the tags to find your ads.<br>\r\n&#9989; Write whatever payment terms available for your ads.<br><br>\r\n\r\nDon\'t<br>\r\n&#10062; Do not include detailed description of the property in the description. You already did that in the Listing.<br>\r\n&#10062; Do not include your contact information in the description. Interested clients can get that in the <i>Contact Agent</i>.<br>\r\n&#10062; Website addresses, Facebook accounts and YouTube channels are prohibited. Your account may be suspended if you include these information.', '2022-01-05 15:10:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `c_purchase_history`
+--
+
+CREATE TABLE `c_purchase_history` (
+  `recno` int(25) NOT NULL,
+  `usercode` varchar(255) DEFAULT NULL,
+  `datepurchase` date DEFAULT NULL,
+  `memtype_or_star` varchar(255) DEFAULT NULL,
+  `effective_date_start` date DEFAULT NULL,
+  `effective_date_end` date DEFAULT NULL,
+  `dateinserted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `c_side_ads`
+--
+
+CREATE TABLE `c_side_ads` (
+  `recno` int(25) NOT NULL,
+  `filename` varchar(50) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
+  `seenby` varchar(25) DEFAULT 'All',
+  `status` varchar(25) DEFAULT 'on',
+  `ads_url` text,
+  `dateinserted` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `c_side_ads`
+--
+
+INSERT INTO `c_side_ads` (`recno`, `filename`, `title`, `description`, `seenby`, `status`, `ads_url`, `dateinserted`) VALUES
+(1, '1641407772637', 'Do You Have A Property To Offer?', 'Get your properties for rent or for sale listed for free. <br>Sign up for an account now!', 'Non-Members', 'on', 'https://www.philippinerealestatemarket.com/login.php', '2022-01-05 18:36:13'),
+(2, '1637322152182', 'Are you relocating in Eastwood City?', 'We have really nice condominiums available for rent in Eastwood City. Call 0920-5202222 for viewing appointments.', 'Non-Members', 'on', 'https://www.eastwoodcitycondo.com', '2021-11-19 11:42:34'),
+(3, '1637322266814', 'Condominiums in Eastwood City', 'We have several condominiums for sale in Eastwood City. Visit our website www.eastwoodcitycondo.com', 'Non-Members', 'on', 'https://www.eastwoodcitycondo.com', '2021-11-19 11:44:28'),
+(4, '1637763985387', 'LOOKING FOR A CONDO IN BGC?', 'Furnished 1-bedroom in One Uptown Residence for rent <b> <font color=&#39&#59;blue&#39&#59;>0920-5202222</font></b> for inquiries.<br>Licensed Real Estate Brokers are welcome!', 'All', 'on', 'https://www.philippinerealestatemarket.com/details.php?id=31', '2021-11-24 14:26:25'),
+(5, '1641407708252', 'Are you a property owner looking for a broker?', 'List your property with us! Call 0920-5202222 now!', 'All', 'on', 'https://eastwoodcitycondo.com//list-your-property-for-rent-sale-management.php', '2022-01-05 18:35:09'),
+(6, '1640539936613', 'Do you want your ads prioritized in the catalog?', 'Assign a star is on your ads to get your property ads prioritized in the catalog. Each star is valid for 30 consecutive days.', 'Members', 'on', '', '2021-12-26 17:32:17'),
+(7, '1640540106674', 'Turn all your ads to Gold!', 'Become a gold member and get 10 of your ads featured on the first page.', 'Members', 'on', NULL, '2021-12-26 17:35:07'),
+(8, '1641406555000', '2-Bedroom For Sale in Eastwood City', 'Furnished 2-bedroom in One Central Park is available.  Call <b> <font color=&#39;blue&#39;>0920-5202222</font></b> for inquiries. Licensed Real Estate Brokers are welcome!', 'All', 'on', 'https://eastwoodcitycondo.com/property-details.php?idl=29&idu=g11612', '2022-01-05 18:15:56'),
+(9, '1640540106673', 'Turn all your ads to Silver!', 'Become a silver member and get your ads featured on the first page.', 'Members', 'on', '', '2021-12-26 17:35:06'),
+(15, '1641408313081', 'Eastwood Legrand 3 Condo For Rent', 'This unfurnished studio in Eastwood Legrand 3 is available.  Call <b> <font color=&#39;blue&#39;>0920-5202222</font></b> for inquiries.<br>Licensed Real Estate Brokers are welcome!', 'All', 'on', 'http://eastwoodcitycondo.com/property-details.php?idl=93&idu=h30602', '2022-01-05 18:45:14'),
+(16, '1642088869901', 'Property Search At Your Fingertips', 'Philippine Real Estate Market is available on Playstore and Appstore. Find your dream property in a few clicks. Download the App now!', 'All', 'on', '', '2022-01-13 15:47:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `z_admin`
+--
+
+CREATE TABLE `z_admin` (
+  `recno` int(11) NOT NULL,
+  `username` varchar(25) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `dateinserted` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `z_admin`
+--
+
+INSERT INTO `z_admin` (`recno`, `username`, `password`, `dateinserted`) VALUES
+(1, 'mctc', 'ba5a352b757467be72fa4d6db70427bc', '2021-11-02 16:04:23'),
+(2, 'jasonxx', '81dc9bdb52d04dc20036dbd8313ed055', '2021-11-02 16:05:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `z_disallowed_words`
+--
+
+CREATE TABLE `z_disallowed_words` (
+  `recno` int(25) NOT NULL,
+  `disallowed` varchar(255) DEFAULT NULL,
+  `substitute` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 TABLESPACE `chrcha75_eastwood2`;
+
+--
+-- Dumping data for table `z_disallowed_words`
+--
+
+INSERT INTO `z_disallowed_words` (`recno`, `disallowed`, `substitute`) VALUES
+(1, 'favida', 'Eastwood City Condo'),
+(2, '.com', 'Eastwood City Condo'),
+(3, 'youtube', 'Eastwood City Condo'),
+(4, 'facebook', 'Eastwood City Condo'),
+(5, 'instagram', 'Eastwood City Condo'),
+(6, 'twitter', 'Eastwood City Condo'),
+(7, 'scam', NULL),
+(8, 'scandal', NULL),
+(9, 'sex scandal', NULL),
+(10, 'pussy', NULL),
+(11, 'vagina', NULL),
+(12, 'penis', NULL),
+(13, 'drug addict', NULL),
+(14, 'kill you', NULL),
+(15, 'fuck', NULL),
+(16, 'date me', NULL),
+(17, 'magnanakaw', NULL),
+(18, 'manloloko', NULL),
+(19, 'mamatay', NULL),
+(20, 'putang ina', NULL),
+(21, 'GD group', 'Eastwood City Condo'),
+(22, 'Kondo Ko', 'Eastwood City Condo'),
+(23, 'rentpad', 'Eastwood City Condo'),
+(24, 'lamudi', 'Eastwood City Condo'),
+(25, 'property24', 'Eastwood City Condo'),
+(26, 'zipmatch', 'Eastwood City Condo'),
+(27, 'dotproperty', 'Eastwood City Condo'),
+(28, 'myproperty', 'Eastwood City Condo'),
+(29, 'trovit', 'Eastwood City Condo'),
+(30, 'carousell', 'Eastwood City Condo'),
+(31, 'onepropertee', 'Eastwood City Condo'),
+(32, 'megaworldcondounits', 'Eastwood City Condo'),
+(33, 'hoppler', 'Eastwood City Condo'),
+(34, 'phrealestate', 'Eastwood City Condo'),
+(35, '.ph', 'Eastwood City Condo'),
+(36, '.net', 'Eastwood City Condo'),
+(37, 'oneeastwood', 'Eastwood City Condo'),
+(38, 'toprealty', 'Eastwood City Condo'),
+(39, 'realtorph', 'Eastwood City Condo'),
+(40, 'foursquare', 'Eastwood City Condo'),
+(41, 'eastwoodcityliving', 'Eastwood City Condo');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `a_accounts`
+--
+ALTER TABLE `a_accounts`
+  ADD PRIMARY KEY (`recno`),
+  ADD UNIQUE KEY `usercode` (`usercode`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `memberlink` (`memberlink`);
+
+--
+-- Indexes for table `a_listingtype`
+--
+ALTER TABLE `a_listingtype`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_locationcity`
+--
+ALTER TABLE `a_locationcity`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_membertype`
+--
+ALTER TABLE `a_membertype`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_mincontract`
+--
+ALTER TABLE `a_mincontract`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_paymentterm`
+--
+ALTER TABLE `a_paymentterm`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_propertyclass`
+--
+ALTER TABLE `a_propertyclass`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `a_propertytype`
+--
+ALTER TABLE `a_propertytype`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `b_ads`
+--
+ALTER TABLE `b_ads`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `b_clients`
+--
+ALTER TABLE `b_clients`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `b_listing`
+--
+ALTER TABLE `b_listing`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `c_expiration_checker`
+--
+ALTER TABLE `c_expiration_checker`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `c_news`
+--
+ALTER TABLE `c_news`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `c_purchase_history`
+--
+ALTER TABLE `c_purchase_history`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `c_side_ads`
+--
+ALTER TABLE `c_side_ads`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `z_admin`
+--
+ALTER TABLE `z_admin`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- Indexes for table `z_disallowed_words`
+--
+ALTER TABLE `z_disallowed_words`
+  ADD PRIMARY KEY (`recno`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `a_accounts`
+--
+ALTER TABLE `a_accounts`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `a_listingtype`
+--
+ALTER TABLE `a_listingtype`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `a_locationcity`
+--
+ALTER TABLE `a_locationcity`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+
+--
+-- AUTO_INCREMENT for table `a_membertype`
+--
+ALTER TABLE `a_membertype`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `a_mincontract`
+--
+ALTER TABLE `a_mincontract`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `a_paymentterm`
+--
+ALTER TABLE `a_paymentterm`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `a_propertyclass`
+--
+ALTER TABLE `a_propertyclass`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT for table `a_propertytype`
+--
+ALTER TABLE `a_propertytype`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `b_ads`
+--
+ALTER TABLE `b_ads`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+
+--
+-- AUTO_INCREMENT for table `b_clients`
+--
+ALTER TABLE `b_clients`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `b_listing`
+--
+ALTER TABLE `b_listing`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+
+--
+-- AUTO_INCREMENT for table `c_expiration_checker`
+--
+ALTER TABLE `c_expiration_checker`
+  MODIFY `recno` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT for table `c_news`
+--
+ALTER TABLE `c_news`
+  MODIFY `recno` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `c_purchase_history`
+--
+ALTER TABLE `c_purchase_history`
+  MODIFY `recno` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `c_side_ads`
+--
+ALTER TABLE `c_side_ads`
+  MODIFY `recno` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `z_admin`
+--
+ALTER TABLE `z_admin`
+  MODIFY `recno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `z_disallowed_words`
+--
+ALTER TABLE `z_disallowed_words`
+  MODIFY `recno` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+COMMIT;
